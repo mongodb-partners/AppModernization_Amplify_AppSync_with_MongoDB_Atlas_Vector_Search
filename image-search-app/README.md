@@ -1,5 +1,5 @@
 
-# Image Search Application README
+# Image Search Application 
 
 ## Introduction
 The Image Search Application is an innovative solution designed to search through a MongoDB vector database using image content. It leverages AWS technologies and the  CLIP model deployed on Sagemaker to offer a seamless and efficient image searching experience.
