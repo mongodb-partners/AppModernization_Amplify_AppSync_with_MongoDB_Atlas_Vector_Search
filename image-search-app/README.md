@@ -14,8 +14,6 @@ The Image Search Application is an innovative solution designed to search throug
 - AWS S3
 - AWS AppSync
 
-## Architecture Diagram
-(Include a diagram here showcasing the application's architecture. The diagram should illustrate the flow from data ingestion to data search and the interaction between different components.)
 
 ## Components Overview
 ### 1. CLIP Model Creation
