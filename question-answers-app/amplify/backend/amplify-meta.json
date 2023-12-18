@@ -1,0 +1,89 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-questionanswersapp-dev-155156-authRole",
+      "UnauthRoleArn": "arn:aws:iam::816546967292:role/amplify-questionanswersapp-dev-155156-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::816546967292:role/amplify-questionanswersapp-dev-155156-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-questionanswersapp-dev-155156-deployment",
+      "UnauthRoleName": "amplify-questionanswersapp-dev-155156-unauthRole",
+      "StackName": "amplify-questionanswersapp-dev-155156",
+      "StackId": "arn:aws:cloudformation:us-east-2:816546967292:stack/amplify-questionanswersapp-dev-155156/24e62040-8a42-11ee-850d-028dec7b844b",
+      "AmplifyAppId": "dh5ejyxx1q1tc"
+    }
+  },
+  "api": {
+    "queryanswers": {
+      "service": "AppSync",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY"
+          },
+          "additionalAuthenticationProviders": null
+        },
+        "GraphQLAPIIdOutput": "f3qlkoavvzc4td3bwatdzhaftm",
+        "GraphQLAPIEndpointOutput": "https://c6yaswgudzel7p7xterdt5tfva.appsync-api.us-east-2.amazonaws.com/graphql",
+        "name": "queryanswers",
+        "region": "us-east-2",
+        "GraphQLAPIKeyOutput": "da2-dmmrrsrowfgslbxpfw5w5fykr4"
+      },
+      "lastPushTimeStamp": "2023-11-23T21:12:11.332Z"
+    }
+  },
+  "auth": {
+    "questionanswersapp806ab304": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-questionanswersapp-dev-155156-deployment/amplify-cfn-templates/auth/questionanswersapp806ab304-cloudformation-template.json",
+        "logicalId": "authquestionanswersapp806ab304"
+      },
+      "lastPushTimeStamp": "2023-12-13T20:05:20.918Z",
+      "output": {
+        "UserPoolId": "us-east-2_AdnKWUvHc",
+        "AppClientIDWeb": "s3kocmputt5sjuabcothmtviv",
+        "AppClientID": "3hproojkpl295ucpflhv2dd8cm",
+        "IdentityPoolId": "us-east-2:5dd5f5bf-3ed1-4ea0-9249-5472961f1250",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:816546967292:userpool/us-east-2_AdnKWUvHc",
+        "IdentityPoolName": "questionanswersapp806ab304_identitypool_806ab304__dev",
+        "UserPoolName": "questionanswersapp806ab304_userpool_806ab304"
+      },
+      "lastPushDirHash": "itCGVYQ7XRf95h9pC42uzSANBuk="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-questionanswersapp-dev-155156-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2023-12-13T20:05:20.920Z",
+      "output": {},
+      "lastPushDirHash": "ChdN/ux5S7XJAeSKDsV69c3ynBQ="
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-questionanswersapp-dev-155156-authRole",
+      "UnauthRoleArn": "arn:aws:iam::816546967292:role/amplify-questionanswersapp-dev-155156-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::816546967292:role/amplify-questionanswersapp-dev-155156-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-questionanswersapp-dev-155156-deployment",
+      "UnauthRoleName": "amplify-questionanswersapp-dev-155156-unauthRole",
+      "StackName": "amplify-questionanswersapp-dev-155156",
+      "StackId": "arn:aws:cloudformation:us-east-2:816546967292:stack/amplify-questionanswersapp-dev-155156/24e62040-8a42-11ee-850d-028dec7b844b",
+      "AmplifyAppId": "dh5ejyxx1q1tc"
+    },
+    "categories": {
+      "auth": {
+        "questionanswersapp806ab304": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dh5ejyxx1q1tc",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
