@@ -1,0 +1,89 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-imagesearchapp-dev-103831-authRole",
+      "UnauthRoleArn": "arn:aws:iam::816546967292:role/amplify-imagesearchapp-dev-103831-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::816546967292:role/amplify-imagesearchapp-dev-103831-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-imagesearchapp-dev-103831-deployment",
+      "UnauthRoleName": "amplify-imagesearchapp-dev-103831-unauthRole",
+      "StackName": "amplify-imagesearchapp-dev-103831",
+      "StackId": "arn:aws:cloudformation:us-east-2:816546967292:stack/amplify-imagesearchapp-dev-103831/34d8ebd0-7fdf-11ee-bbe8-0a6375617555",
+      "AmplifyAppId": "d39f8eiwzuhs2e"
+    }
+  },
+  "api": {
+    "mongodbapi": {
+      "service": "AppSync",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY"
+          },
+          "additionalAuthenticationProviders": null
+        },
+        "GraphQLAPIIdOutput": "gtjd5o5ednarjidzdanrjp6siq",
+        "GraphQLAPIEndpointOutput": "https://bhxlremg5zfuleafoxfiqxqwou.appsync-api.us-east-2.amazonaws.com/graphql",
+        "name": "mongodbapi",
+        "region": "us-east-2",
+        "GraphQLAPIKeyOutput": "da2-cy5ttm756vamjlmfkqb5bnwhz4"
+      },
+      "lastPushTimeStamp": "2023-11-10T15:43:40.305Z"
+    }
+  },
+  "auth": {
+    "imagesearchappa3b62367": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-imagesearchapp-dev-103831-deployment/amplify-cfn-templates/auth/imagesearchappa3b62367-cloudformation-template.json",
+        "logicalId": "authimagesearchappa3b62367"
+      },
+      "lastPushTimeStamp": "2023-11-10T16:08:32.495Z",
+      "output": {
+        "UserPoolId": "us-east-2_rPCaOAyHy",
+        "AppClientIDWeb": "2fbaik90c22a29oflrt7a44kuk",
+        "AppClientID": "5cme9fiqo8cgvihedm7otj8vt1",
+        "IdentityPoolId": "us-east-2:757861ed-6787-44dd-a92a-7cb1aa2fef15",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:816546967292:userpool/us-east-2_rPCaOAyHy",
+        "IdentityPoolName": "imagesearchappa3b62367_identitypool_a3b62367__dev",
+        "UserPoolName": "imagesearchappa3b62367_userpool_a3b62367"
+      },
+      "lastPushDirHash": "MJXSZc8k+jxw0hl2KY1JwZZFKjE="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-imagesearchapp-dev-103831-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2023-11-10T16:08:33.242Z",
+      "output": {},
+      "lastPushDirHash": "ycMf4FlR0AU9TThdysEhIwVCFYQ="
+    }
+  }
+}
