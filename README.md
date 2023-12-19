@@ -52,7 +52,14 @@ This repository contains two sophisticated search applications: Image Search and
 4. Environment Variables Setup
    - Set up necessary environment variables in `.env` files for each application.
 
-5. Launching the Applications
+5. Create Lambda functions 
+   - Create lambda functions using the code in the repo.   
+   
+6. Create AppSync API
+   -Create Appsync API using the schema defined in the repo.
+   -Use the lambda functions as the data source   
+
+7. Launching the Applications
    ```
    amplify init
    amplify publish
