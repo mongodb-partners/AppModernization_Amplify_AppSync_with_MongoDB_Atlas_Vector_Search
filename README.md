@@ -11,17 +11,16 @@ This repository contains two sophisticated search applications: Image Search and
 - AWS S3
 - AWS Textract (Document Search)
 - MongoDB
-- Machine Learning Models (Hugging Face CLIP, Amazon Titan, Anthropic Claude)
+- Machine Learning Models (CLIP, Amazon Titan, Anthropic Claude)
 
 ## Repository Structure
 - `image-search-app/`: Contains all code and resources for the Image Search Application.
 - `document-search-app/`: Contains all code and resources for the Document Search Application.
-- `amplify-ui/`: Angular-based front-end for both applications.
 - `lambda-functions/`: AWS Lambda functions used as data sources for AWS AppSync.
 
 ## Image Search Application Overview
 - Upload and process images to search through a MongoDB vector database.
-- Uses the Hugging Face CLIP model for image processing.
+- Uses the  CLIP model for image processing.
 - Angular-based Amplify UI for image upload and search results display.
 
 ## Document Search Application Overview
