@@ -60,7 +60,10 @@ This repository contains two sophisticated search applications: Image Search and
    - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Appsync/documentsearch/README.md) defined in the repo.
    - Use the lambda functions as the data source   
 
-7. Launching the Applications
+7. Create Clip models and ingest Dataset
+   - Run the notebook to create a Clip model and ingest dataset for image search
+
+8. Launching the Applications
    ```
    amplify init
    amplify publish
