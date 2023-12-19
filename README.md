@@ -56,8 +56,8 @@ This repository contains two sophisticated search applications: Image Search and
    - Create lambda functions using the code in the repo.   
    
 6. Create AppSync API
-   -Create Appsync API using the schema defined in the repo.
-   -Use the lambda functions as the data source   
+   - Create Appsync API using the schema defined in the repo.
+   - Use the lambda functions as the data source   
 
 7. Launching the Applications
    ```
