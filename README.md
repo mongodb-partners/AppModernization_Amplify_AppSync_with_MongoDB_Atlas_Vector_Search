@@ -17,6 +17,7 @@ This repository contains two sophisticated search applications: Image Search and
 - `image-search-app/`: Contains all code and resources for the Image Search Application.
 - `document-search-app/`: Contains all code and resources for the Document Search Application.
 - `lambda-functions/`: AWS Lambda functions used as data sources for AWS AppSync.
+- `Appsync/`: AWS Appsync data api which the Amplify UI app uses.
 
 ## Image Search Application Overview
 - Upload and process images to search through a MongoDB vector database.
