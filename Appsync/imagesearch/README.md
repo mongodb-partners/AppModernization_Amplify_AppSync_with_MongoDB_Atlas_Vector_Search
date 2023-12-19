@@ -21,7 +21,7 @@ In the AppSync console, under your API, go to the **Schema** section and enter t
 
 ### Step 3: Configuring Data Sources
 1. For `searchImage`:
-   - Add a new data source and select the deployed Lambda function.
+   - Add a new data source and select the deployed [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/Lambda/image-search/vectorsearch) function.
 2. For `getItemById`:
    - Add a new data source that connects to your MongoDB using the MongoDB Data API.
 
