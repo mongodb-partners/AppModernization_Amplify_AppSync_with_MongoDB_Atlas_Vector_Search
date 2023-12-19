@@ -78,8 +78,4 @@ This repository contains two sophisticated search applications: Image Search and
 - Navigate to the Document Search UI.
 - Upload documents, ask questions, and receive answers based on the document content.
 
-## Contributing
-We welcome contributions to improve these applications. Please refer to our contributing guidelines for more information.
 
-## License
-Both applications in this repository are licensed under the MIT License - see the LICENSE file in each application's directory for details.

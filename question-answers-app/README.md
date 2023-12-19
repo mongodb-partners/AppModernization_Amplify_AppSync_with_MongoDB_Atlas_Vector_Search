@@ -73,8 +73,3 @@ To use the app:
 3. Choose a category for the image.
 4. View the search results displayed based on the image content.
 
-## Contributing
-Contributions are welcome! Please read our contributing guidelines for more information on how to contribute.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
