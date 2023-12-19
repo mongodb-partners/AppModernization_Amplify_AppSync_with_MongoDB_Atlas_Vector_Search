@@ -1,0 +1,9 @@
+type Query {
+	getAnswer(question: String!): String
+	getAnswerBasedOnCategory(question: String!, category: String!): String
+	
+}
+
+schema {
+	query: Query
+}

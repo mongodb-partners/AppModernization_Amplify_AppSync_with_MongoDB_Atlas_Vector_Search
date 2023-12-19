@@ -1,0 +1,37 @@
+type ImageSearchResult {
+	item_ids: [String]
+}
+
+type Item {
+	item_id: ID!
+	item_name_in_en_us: String
+	main_image_id: String
+	image_id: String
+	height: Int
+	width: Int
+	path: String
+}
+
+input ItemInput {
+	item_id: ID!
+	item_name_in_en_us: String
+	main_image_id: String
+	image_id: String
+	height: Int
+	width: Int
+	path: String
+}
+
+type Schema {
+	query: Query
+}
+
+type Mutation {
+	addItem(input: ItemInput!): Item
+}
+
+type Query {
+	listItems(limit: Int, skip: Int): [Item]
+	getItemById(item_id: ID!): Item
+	searchImage(imagePath: String!): ImageSearchResult
+}
