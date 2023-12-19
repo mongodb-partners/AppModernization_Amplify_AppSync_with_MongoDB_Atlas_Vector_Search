@@ -53,7 +53,7 @@ This repository contains two sophisticated search applications: Image Search and
    - Set up necessary environment variables in `.env` files for each application.
 
 5. Create Lambda functions 
-   - Create lambda functions using the code in the repo.   
+   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Lambda/README.md).   
    
 6. Create AppSync API
    - Create Appsync API using the schema defined in the repo.
