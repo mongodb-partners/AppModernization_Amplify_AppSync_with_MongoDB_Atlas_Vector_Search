@@ -33,7 +33,7 @@ This guide provides instructions for setting up an AWS AppSync API with a specif
 ### Step 3: Configuring Data Sources
 1. Navigate to the **Data Sources** section.
 2. Click **New** to add a new data source.
-3. Choose the Lambda function you've already deployed as the data source.
+3. Choose the [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/Lambda/doucument-search/query%26ans) function you've already deployed as the data source.
 4. Save the data source.
 
 ### Step 4: Setting Up Resolvers
