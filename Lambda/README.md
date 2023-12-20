@@ -42,6 +42,7 @@ Ensure your Lambda function code is in a directory with all necessary files exce
 2. Click **Edit** to add new environment variables.
 3. Enter the key-value pairs for your environment variables.
 4. Click **Save** to apply the changes.
+5. For Question and answer lambda user can configure the bedrock models they prefer, just by changing **MODEL_CHOICE** variable in env file and configure necessary parameters(**MODEL_BODY_JSON** and **RESPONSE_PATH**) 
 
 ## Final Steps
 After uploading the zip file and setting environment variables, your Lambda function is ready. You can now test it directly from the AWS Lambda console or trigger it as per your use case.
