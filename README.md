@@ -61,7 +61,7 @@ This repository contains two sophisticated search applications: Image Search and
    - Use the lambda functions as the data source   
 
 7. Create Clip models and ingest Dataset
-   - Run the notebook to create a Clip model and ingest dataset for image search
+   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model and ingest dataset for image search
 
 8. Launching the Applications
    ```
