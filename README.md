@@ -43,7 +43,7 @@ This repository contains two sophisticated search applications: Image Search and
 
 2. Install Dependencies for Amplify UI
    ```
-   cd amplify-ui
+   cd <app-name>
    npm install
    ```
 
