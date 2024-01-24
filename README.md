@@ -42,7 +42,7 @@ This repository contains two sophisticated search applications: Image Search and
    
 2. Clone the Repository
    ```
-   git clone <repository-url>
+   gh repo clone mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search
    ```
 
 4. Install Dependencies for Amplify UI
