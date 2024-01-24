@@ -54,7 +54,17 @@ npm install
 - Configure AWS services such as Amplify, Sagemaker, S3, Lambda following the AWS documentation.
 
 #### Environment Variables
-- Set up the necessary environment variables in environment file.
+- Set up the necessary environment variables in [environment](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search-app/src/environments/environment.prod.ts) file.
+- A sample environment ts file is
+```
+  export const environment = {
+    production: true,
+    s3Bucket: 'xxxx',
+    s3Folder: 'xxx',
+    s3Region: 'xxxx',
+    staticImagePath :'xxx'
+  };
+```
 
 #### Launching the Application
 ```
