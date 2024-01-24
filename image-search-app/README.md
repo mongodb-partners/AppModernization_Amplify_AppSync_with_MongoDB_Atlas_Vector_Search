@@ -39,9 +39,8 @@ The Image Search Application is an innovative solution designed to search throug
 - Amplify CLI installed
 - Node.js installed
 
-#### Clone the Repository
+#### Go to the app directory
 ```
-git clone <repository-url>
 cd image-search-app
 ```
 
