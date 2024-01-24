@@ -42,7 +42,7 @@ The Image Search Application is an innovative solution designed to search throug
 #### Clone the Repository
 ```
 git clone <repository-url>
-cd image-search-app
+cd question-answers-app
 ```
 
 #### Install Dependencies
