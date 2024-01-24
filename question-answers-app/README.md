@@ -1,13 +1,12 @@
 
-# Image Search Application 
+# Question Answers App
 
 ## Introduction
-The Image Search Application is an innovative solution designed to search through a MongoDB vector database using image content. It leverages AWS technologies and the  CLIP model deployed on Sagemaker to offer a seamless and efficient image searching experience.
+The Question Answers Application is an innovative solution designed to chat with documents. It leverages AWS Bedrock Titan/Claude models to offer a seamless and efficient  chat experience.
 
 ### Technologies Used
 - AWS Amplify
-- AWS Sagemaker
-- CLIP Model
+- Bedrock Titan/Claude models
 - MongoDB
 - Angular
 - AWS Lambda
@@ -16,21 +15,19 @@ The Image Search Application is an innovative solution designed to search throug
 
 
 ## Components Overview
-### 1. CLIP Model Creation
-- The CLIP model is deployed in AWS Sagemaker using an AWS Amplify Studio notebook. This model forms the backbone of our image processing and embedding generation.
+### 1. Bedrock models
+- The Bedrock models forms the backbone of our document search.
 
 ### 2. Data Ingestion
-- Images are downloaded from public datasets using an AWS Amplify Studio notebook.
-- These images are then processed through the CLIP model to create embeddings.
+- Amplify UI has an upload screen where the users can upload the documents
+- These images are then processed through the AWS Bedrock models to create embeddings.
 - The embeddings, along with associated metadata, are ingested into MongoDB, which acts as our vector store.
 
-### 3. Data Search
+### 3. Chat with documents
 - The application features an Angular-based Amplify UI.
-- It includes a drag-and-drop interface for image upload. Uploaded images are stored in an AWS S3 bucket.
-- The UI allows users to select a category for their image, which is stored as metadata in S3.
-- Upon image upload, a GraphQL call is made using AWS AppSync, triggering a Lambda function.
-- The Lambda function reads the image and metadata from S3, generates an embedding using the CLIP model, and performs a vector search in MongoDB.
-- Search results are filtered based on the selected category and displayed in the UI.
+- It includes a chat based web interface to chat with documents
+- The user can select a category on which he wants to query
+- The chatbot interface will allow the user to query and get response
 
 ## Setup Instructions
 ### Local Setup
