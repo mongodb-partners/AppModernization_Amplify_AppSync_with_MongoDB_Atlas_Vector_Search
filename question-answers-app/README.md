@@ -36,9 +36,8 @@ The Question Answers Application is an innovative solution designed to chat with
 - Amplify CLI installed
 - Node.js installed
 
-#### Clone the Repository
+#### Go to the app directory
 ```
-git clone <repository-url>
 cd question-answers-app
 ```
 
