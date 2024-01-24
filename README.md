@@ -46,11 +46,7 @@ This repository contains two sophisticated search applications: Image Search and
    ```
 
 4. Install Dependencies for Amplify UI
-   ```
-   cd <app-name>
-   npm install
-   ```
-   follow the instructions for
+   follow the instructions for installing dependencies
    - [image search app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search-app/README.md).
    - [question answers app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers-app/README.md).
      
