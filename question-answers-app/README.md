@@ -54,7 +54,7 @@ npm install
 - Configure AWS services such as Amplify, Sagemaker, S3, Lambda following the AWS documentation.
 
 #### Environment Variables
-- Set up the necessary environment variables in a `.env` file.
+- Set up the necessary environment variables in a environment file.
 
 #### Launching the Application
 ```
