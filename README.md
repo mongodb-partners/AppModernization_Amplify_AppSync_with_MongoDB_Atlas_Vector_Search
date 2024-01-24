@@ -36,34 +36,41 @@ This repository contains two sophisticated search applications: Image Search and
 - Node.js installed
 
 ### Common Setup for Both Applications
-1. Clone the Repository
+1. Data setup in MongoDB
+   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model    
+ and ingest dataset for image search
+   
+2. Clone the Repository
    ```
    git clone <repository-url>
    ```
 
-2. Install Dependencies for Amplify UI
+4. Install Dependencies for Amplify UI
    ```
    cd <app-name>
    npm install
    ```
-
-3. AWS Configuration
+   follow the instructions for
+   - [image search app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search-app/README.md).
+   - [question answers app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers-app/README.md).
+     
+6. AWS Configuration
    - Configure AWS services like S3, Lambda, Textract, and AppSync following AWS documentation.
 
-4. Environment Variables Setup
+7. Environment Variables Setup
    - Set up necessary environment variables in `.env` files for each application.
 
-5. Create Lambda functions 
+8. Create Lambda functions 
    - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Lambda/README.md).   
    
-6. Create AppSync API
+9. Create AppSync API
    - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Appsync/documentsearch/README.md) defined in the repo.
    - Use the lambda functions as the data source   
 
-7. Create Clip models and ingest Dataset
+10. Create Clip models and ingest Dataset
    - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model and ingest dataset for image search
 
-8. Launching the Applications
+11. Launching the Applications
    ```
    amplify init
    amplify publish
