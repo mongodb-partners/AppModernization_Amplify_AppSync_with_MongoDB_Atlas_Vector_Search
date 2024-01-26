@@ -31,17 +31,14 @@ This repository contain sophisticated document search application. This applicat
 
 ### Application Setup 
 
-1. Data Ingestion and Clip models creation
-   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md) to create a Clip model and ingest dataset for image search
-
-2. Create Lambda functions 
-   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md).   
+1. Create Lambda functions 
+   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/Lambda/pdfextract_ingests/README.md).   
    
-3. Create AppSync API
-   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md) defined in the repo.
+2. Create AppSync API
+   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AppSync/questionanswersapp/README.md) defined in the repo.
    - Use the lambda functions as the data source   
 
-4. Create Front end application
+3. Create Front end application
    - Create Front end application following the  [tutdocument](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md) 
 
 
@@ -49,10 +46,6 @@ This repository contain sophisticated document search application. This applicat
 ### Reference Links
 - [Getting Started with AWS Amplify for Angular](https://docs.amplify.aws/angular/start/getting-started/introduction/)
 
-## Usage
-### Image Search Application
-- Navigate to the Image Search UI.
-- Upload images and view search results based on image content.
 
 
 
