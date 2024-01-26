@@ -28,7 +28,7 @@ In the AppSync console, under your API, go to the **Schema** section and enter t
 
 ### Step 3: Configuring Data Sources for Query
 1.  `searchImage`:
-   - Add a new data source and select the deployed [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/Lambda/image-search/vectorsearch) function.
+   - Add a new data source and select the deployed [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md) function.
    - Attach the added data source to the query 'searchImage'
    - Select the 'Unit resolver'
    - Use "Velocity Template Language(VTL) as the runtime
