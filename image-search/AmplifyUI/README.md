@@ -76,28 +76,15 @@ npm install
 npm install aws-amplify
 ```
 
-### Add the below highlighted line in main.ts
-```
-import amplifyconfig from './amplifyconfiguration.json';
-```
 
-### Add the below line in tsconfig.json
 
-```
-{
-  ...
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    ...
-  }
-}
-```
-
-### Add api
+### Add AppSync api
 
 - Add the API we created like below
 ![Alt text](image.png)
+
+
+![Alt text](image-4.png)
 
 ### Push the application
 
@@ -112,6 +99,7 @@ amplify push
 amplify add auth
 ```
 
+![Alt text](image-3.png)
 ### Push the application
 
 ```

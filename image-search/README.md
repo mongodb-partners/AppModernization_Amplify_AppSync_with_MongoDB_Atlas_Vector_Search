@@ -47,7 +47,7 @@ This repository contain sophisticated image Search application. This application
    - Use the lambda functions as the data source   
 
 7. Create Front end application
-   - Create Front end application following the  [tutorial](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model and ingest dataset for image search
+   - Create Front end application following the  [tutdocument](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) 
 
 
 

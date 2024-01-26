@@ -16,8 +16,6 @@ This repository contains two sophisticated search applications: Image Search and
 ## Repository Structure
 - `image-search-app/`: Contains all code and resources for the Image Search Application.
 - `document-search-app/`: Contains all code and resources for the Document Search Application.
-- `lambda-functions/`: AWS Lambda functions used as data sources for AWS AppSync.
-- `Appsync/`: AWS Appsync data api which the Amplify UI app uses.
 
 ## Image Search Application Overview
 - Upload and process images to search through a MongoDB vector database.
@@ -34,44 +32,23 @@ This repository contains two sophisticated search applications: Image Search and
 - AWS account
 - Amplify CLI installed
 - Node.js installed
+- MongoDB
+
 
 ### Common Setup for Both Applications
-1. Data setup in MongoDB
-   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model    
- and ingest dataset for image search
+
    
-2. Clone the Repository
+1. Clone the Repository
    ```
    gh repo clone mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search
    ```
-
-4. Install Dependencies for Amplify UI
-   follow the instructions for installing dependencies
-   - [image search app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search-app/README.md).
-   - [question answers app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers-app/README.md).
      
-6. AWS Configuration
+2. AWS Configuration
    - Configure AWS services like S3, Lambda, Textract, and AppSync following AWS documentation.
 
-7. Environment Variables Setup
-   - Set up necessary environment variables in `.env` files for each application.
+3. Amplify CLI Setup
+   - Setup Amplify CLI following the [documentation](https://docs.amplify.aws/angular/start/getting-started/installation/)
 
-8. Create Lambda functions 
-   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Lambda/README.md).   
-   
-9. Create AppSync API
-   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Appsync/documentsearch/README.md) defined in the repo.
-   - Use the lambda functions as the data source   
-
-10. Create Clip models and ingest Dataset
-   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model and ingest dataset for image search
-
-11. Launching the Applications
-   ```
-   amplify init
-   amplify publish
-   ng serve
-   ```
 
 ### Reference Links
 - [Getting Started with AWS Amplify for Angular](https://docs.amplify.aws/angular/start/getting-started/introduction/)
