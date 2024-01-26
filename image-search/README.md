@@ -15,9 +15,10 @@ This repository contain sophisticated image Search application. This application
 - Machine Learning Models (CLIP)
 
 ## Repository Structure
-- `AmplifyUI/`: Contains all Front end code and resources for the Image Search Application.
-- `Lambda/`: AWS Lambda functions used as data sources for AWS AppSync.
-- `Appsync/`: AWS Appsync data api which the Amplify UI app uses.
+- [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
+- [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md): AWS Lambda functions used as data sources for AWS AppSync.
+- [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md): AWS Appsync data api which the Amplify UI app uses.
+- [SagemakerNotebook](): Contains the notebook job for creating clip model and data ingestion to mongodb
 
 
 
