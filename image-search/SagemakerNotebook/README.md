@@ -4,7 +4,16 @@
 - AWS Account with access to Amazon SageMaker, AWS Lambda, Amazon S3
 - Follow the steps to onboard to [sagemaker domain](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html)
 - MongoDB account and database setup.
-- Update the mongodb url in the notebook variable
+- Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb)
+
+```
+s3_bucket_name = sagemaker.session.Session().default_bucket()
+# Replace the following with your MongoDB connection details
+mongo_uri = "MDB_URL"
+db_name = "vectorsearch"
+image_metadata_collection_name = "image_metadata"
+embeddings_collection_name = "embeddings"
+```
 
 ## Steps to run 
 - Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb) in sagemaker studio.
