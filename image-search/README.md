@@ -15,10 +15,11 @@ This repository contain sophisticated image Search application. This application
 - Machine Learning Models (CLIP)
 
 ## Repository Structure
-- [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
+- [SagemakerNotebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md): Contains the notebook job for creating clip model and data ingestion to mongodb
 - [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md): AWS Lambda functions used as data sources for AWS AppSync.
 - [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md): AWS Appsync data api which the Amplify UI app uses.
-- [SagemakerNotebook](): Contains the notebook job for creating clip model and data ingestion to mongodb
+- [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
+
 
 
 
@@ -27,28 +28,20 @@ This repository contain sophisticated image Search application. This application
 - AWS Account with access to Amazon SageMaker, AWS Lambda, Amazon S3
 - MongoDB account and database setup.
 
-### Common Setup for Both Applications
-1. Clone the Repository
-   ```
-   git clone <repository-url>
-   ```
+### Application Setup 
 
+1. Data Ingestion and Clip models creation
+   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md) to create a Clip model and ingest dataset for image search
 
-7. Data Ingestion and Clip models creation
-   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) to create a Clip model and ingest dataset for image search
-
-
-
-
-5. Create Lambda functions 
-   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Lambda/README.md).   
+2. Create Lambda functions 
+   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md).   
    
-6. Create AppSync API
-   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/Appsync/documentsearch/README.md) defined in the repo.
+3. Create AppSync API
+   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md) defined in the repo.
    - Use the lambda functions as the data source   
 
-7. Create Front end application
-   - Create Front end application following the  [tutdocument](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/tree/main/SagemakerNotebook) 
+4. Create Front end application
+   - Create Front end application following the  [tutdocument](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md) 
 
 
 
