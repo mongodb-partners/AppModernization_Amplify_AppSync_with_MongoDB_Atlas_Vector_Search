@@ -1,30 +1,56 @@
 
-# Image Search Application 
+# Document Search Application 
 
 ## Introduction
-The Image Search Application is an innovative solution designed to search through a MongoDB vector database using image content. It leverages AWS technologies and the  CLIP model deployed on Sagemaker to offer a seamless and efficient image searching experience.
+The document Search Application is an innovative solution designed to search through a MongoDB vector database using image content. It leverages AWS technologies and the  Bedrock models deployed on Sagemaker to offer a seamless and efficient image searching experience.
 
 ### Technologies Used
 - AWS Amplify
 - AWS Sagemaker
-- CLIP Model
+- Bedrock Model
 - MongoDB
 - Angular
 - AWS Lambda
 - AWS S3
 - AWS AppSync
 
+## Prerequisites
+### 1. AWS Account
+- An active AWS account is required to use AWS Amplify and other AWS services.
 
-## Components Overview
-### 1. CLIP Model Creation
-- The CLIP model is deployed in AWS Sagemaker using an AWS Amplify Studio notebook. This model forms the backbone of our image processing and embedding generation.
+### 2. Node.js
+- AWS Amplify requires Node.js for server-side logic. [Download Node.js](https://nodejs.org/).
 
-### 2. Data Ingestion
-- Images are downloaded from public datasets using an AWS Amplify Studio notebook.
-- These images are then processed through the CLIP model to create embeddings.
-- The embeddings, along with associated metadata, are ingested into MongoDB, which acts as our vector store.
+### 3. NPM (Node Package Manager)
+- NPM is used to install packages and comes included with Node.js.
 
-### 3. Data Search
+### 4. Angular CLI
+- This command-line interface tool is used to develop Angular applications. 
+
+
+### 5. AWS Amplify CLI
+- The AWS Amplify CLI is a unified toolchain for creating and managing AWS cloud services for your app.    
+- Follow this [document](https://docs.amplify.aws/angular/start/getting-started/installation/) for setup
+
+### 6. Set up environment variables in environment.prod.ts
+
+```
+export const environment = {
+    production: true,
+    s3Bucket: 'xxx',
+    s3Folder: 'xx',
+    s3Region: 'xxx',
+  };
+  
+  
+```
+
+### 7. AppSync Api
+- Create API as discused in previous tutorials
+
+
+## Application Overview
+
 - The application features an Angular-based Amplify UI.
 - It includes a drag-and-drop interface for image upload. Uploaded images are stored in an AWS S3 bucket.
 - The UI allows users to select a category for their image, which is stored as metadata in S3.
@@ -33,16 +59,11 @@ The Image Search Application is an innovative solution designed to search throug
 - Search results are filtered based on the selected category and displayed in the UI.
 
 ## Setup Instructions
-### Local Setup
-#### Prerequisites
-- AWS account
-- Amplify CLI installed
-- Node.js installed
+
 
 #### Clone the Repository
 ```
-git clone <repository-url>
-cd image-search-app
+cd document-search/AmplifyUI/
 ```
 
 #### Install Dependencies
@@ -50,26 +71,67 @@ cd image-search-app
 npm install
 ```
 
-#### AWS Configuration
-- Configure AWS services such as Amplify, Sagemaker, S3, Lambda following the AWS documentation.
-
-#### Environment Variables
-- Set up the necessary environment variables in a `.env` file.
-
-#### Launching the Application
+#### Install aws-amplify
 ```
-amplify init
+npm install aws-amplify
+```
+
+
+
+### Add AppSync api
+
+- Add the API we created like below
+![Alt text](image.png)
+
+
+![Alt text](image-4.png)
+
+### Push the application
+
+```
+amplify push
+```
+
+
+### Add Auth
+
+```
+amplify add auth
+```
+
+![Alt text](image-3.png)
+### Push the application
+
+```
+amplify push
+```
+
+### Start the application
+
+```
+npm start
+```
+
+### Add the S3 Access role to the application Auth role
+
+![Alt text](image-1.png)
+
+
+### Deploy and host app
+
+```
+amplify add hosting
 amplify publish
-ng serve
 ```
 
-### Reference Links
-- [Getting Started with AWS Amplify for Angular](https://docs.amplify.aws/angular/start/getting-started/introduction/)
 
-## Usage
-To use the app:
-1. Navigate to the UI.
-2. Drag and drop an image into the upload area or select an image from your device.
-3. Choose a category for the image.
-4. View the search results displayed based on the image content.
+
+
+#### Reference Link
+https://docs.amplify.aws/angular/start/getting-started/installation/
+
+
+
+
+
 
