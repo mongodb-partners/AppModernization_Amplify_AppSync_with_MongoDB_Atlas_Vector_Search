@@ -6,6 +6,9 @@
 - MongoDB account and database setup.
 - Update the mongodb url in the notebook variable
 
+## Steps to run 
+- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb) in sagemaker studio.
+
 
 ## Step-by-Step Guide
 This guide will walk you through the process of ingesting a dataset from Amazon public datasets (amazon-berkeley-objects), creating and deploying a CLIP model in SageMaker, using the CLIP model to create embeddings, ingesting these embeddings into MongoDB, and finally creating a vector search index in MongoDB for testing.
@@ -48,6 +51,8 @@ This guide will walk you through the process of ingesting a dataset from Amazon 
       }
     }
   }
+
+## Steps to run 
 }
 ```
 ### 7. Perform a Vector Search Test
