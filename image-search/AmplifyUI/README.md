@@ -63,7 +63,7 @@ export const environment = {
 
 #### Clone the Repository
 ```
-cd image-search-app/AmplifyUI/
+cd image-search/AmplifyUI/
 ```
 
 #### Install Dependencies
