@@ -40,7 +40,7 @@ This repository contain sophisticated document search application. This applicat
    - Use the lambda functions as the data source   
 
 3. Create Front end application
-   - Create Front end application following the  [tutdocument](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AmplifyUI/README.md) 
+   - Create Front end application following the  [document](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AmplifyUI/README.md) 
 
 
 
