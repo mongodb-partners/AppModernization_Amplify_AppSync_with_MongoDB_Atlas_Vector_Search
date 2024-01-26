@@ -14,8 +14,8 @@ This repository contains two sophisticated search applications: Image Search and
 - Machine Learning Models (CLIP, Amazon Titan, Anthropic Claude)
 
 ## Repository Structure
-- `image-search-app/`: Contains all code and resources for the Image Search Application.
-- `document-search-app/`: Contains all code and resources for the Document Search Application.
+- [image-search](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/README.md): Contains all code and resources for the Image Search Application.
+- [document-search-app](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/README.md): Contains all code and resources for the Document Search Application.
 
 ## Image Search Application Overview
 - Upload and process images to search through a MongoDB vector database.
