@@ -60,8 +60,6 @@ This guide will walk you through the process of ingesting a dataset from Amazon 
       }
     }
   }
-
-## Steps to run 
 }
 ```
 ### 7. Perform a Vector Search Test
