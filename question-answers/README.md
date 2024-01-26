@@ -3,7 +3,7 @@
 # Atlas Vector Search and AWS AI ML
 
 ## Introduction
-This repository contain sophisticated document application. This applications is designed using AWS technologies and advanced machine learning models. They provide intuitive UIs for user interaction and leverage AWS Amplify, AppSync, and Lambda for backend processing.
+This repository contain sophisticated document search application. This applications is designed using AWS technologies and advanced machine learning models. They provide intuitive UIs for user interaction and leverage AWS Amplify, AppSync, and Lambda for backend processing.
 
 ### Technologies Used
 - AWS Amplify with Angular
@@ -13,10 +13,10 @@ This repository contain sophisticated document application. This applications is
 - AWS Textract (Document Search)
 - AWS Sagemaker
 - MongoDB
-- Machine Learning Models (CLIP)
+- Bedrock Models (Titan, Claude)
 
 ## Repository Structure
-- [SagemakerNotebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md): Contains the notebook job for creating clip model and data ingestion to mongodb
+
 - [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md): AWS Lambda functions used as data sources for AWS AppSync.
 - [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md): AWS Appsync data api which the Amplify UI app uses.
 - [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
