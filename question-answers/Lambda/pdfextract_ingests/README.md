@@ -3,7 +3,7 @@
     1) Sagemaker endpoint with Clip model deployed
     2) Mongobb collection with embedded Image dataset
     3) Vector search index created on the embedding 
-## Step to run the image-search-app-with lambda in Aws lambda:
+## Step to run the document-search-app-with lambda in Aws lambda:
    To generate the .zip file run the below commands
 
    
