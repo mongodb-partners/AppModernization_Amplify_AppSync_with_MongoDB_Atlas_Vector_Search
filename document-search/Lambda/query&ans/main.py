@@ -25,8 +25,8 @@ model_body_json = os.environ.get('MODEL_BODY_JSON')  # New environment variable 
 max_tokens = int(os.environ.get('MAX_TOKENS', 200))
 mongo_db = os.environ.get('MONGO_DB')
 mongo_coll = os.environ.get('MONGO_COLL')
-model_body_json_titan = os.environ.get('MODEL_BODY_JSON_TITAN')
-model_body_json_claude = os.environ.get('MODEL_BODY_JSON_CLAUDE')
+model_body_json = os.environ.get('MODEL_BODY_JSON')
+#model_body_json_claude = os.environ.get('MODEL_BODY_JSON_CLAUDE')
 # Initialize AWS services
 # s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
 # bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1",
@@ -57,13 +57,13 @@ class BedrockRuntimeWrapper:
         try:
             # Choose the response path based on the MODEL_CHOICE environment variable
             if model_choice.upper() == 'TITAN':
-                response_path = os.environ.get('RESPONSE_PATH_TITAN', 'results[0].outputText')
-                body = json.loads(model_body_json_titan)
+                response_path = os.environ.get('RESPONSE_PATH', 'results[0].outputText')
+                body = json.loads(model_body_json)
                 body['inputText'] = f"Question: {prompt}\n\nContext: ... \n\nAnswer:"
                 model_id = model_id_qa_titan
             else:  # Default to Claude model
-                response_path = os.environ.get('RESPONSE_PATH_CLAUDE', 'completion')
-                body = json.loads(model_body_json_claude)
+                response_path = os.environ.get('RESPONSE_PATH', 'completion')
+                body = json.loads(model_body_json)
                 enclosed_prompt = f"Human: {prompt}\n\nAssistant:"
                 body['prompt'] = enclosed_prompt
                 model_id = model_id_qa_claude
