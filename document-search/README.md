@@ -17,9 +17,9 @@ This repository contain sophisticated document search application. This applicat
 
 ## Repository Structure
 
-- [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/Lambda/pdfextract_ingests/README.md): AWS Lambda functions used as data sources for AWS AppSync.
-- [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AppSync/questionanswersapp/README.md): AWS Appsync data api which the Amplify UI app uses.
-- [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
+- [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/Lambda/pdfextract_ingests/README.md): AWS Lambda functions used as data sources for AWS AppSync.
+- [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/AppSync/questionanswersapp/README.md): AWS Appsync data api which the Amplify UI app uses.
+- [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
 
 
 
@@ -33,14 +33,14 @@ This repository contain sophisticated document search application. This applicat
 ### Application Setup 
 
 1. Create Lambda functions 
-   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/Lambda/pdfextract_ingests/README.md).   
+   - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/Lambda/pdfextract_ingests/README.md).   
    
 2. Create AppSync API
-   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AppSync/questionanswersapp/README.md) defined in the repo.
+   - Create Appsync API using the [schema](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/AppSync/questionanswersapp/README.md) defined in the repo.
    - Use the lambda functions as the data source   
 
 3. Create Front end application
-   - Create Front end application following the  [document](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/question-answers/AmplifyUI/README.md) 
+   - Create Front end application following the  [document](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/document-search/AmplifyUI/README.md) 
 
 
 
