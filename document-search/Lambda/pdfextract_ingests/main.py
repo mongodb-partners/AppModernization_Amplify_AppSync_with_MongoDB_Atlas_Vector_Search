@@ -22,13 +22,13 @@ mongo_coll = os.environ.get('MONGO_COLL')
 
 # Initialize AWS services
 
-# s3 = boto3.client('s3')
-# textract = boto3.client('textract')
-# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+s3 = boto3.client('s3')
+textract = boto3.client('textract')
+bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
-s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1",aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1",aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
 
 
 class BedrockRuntimeWrapper:

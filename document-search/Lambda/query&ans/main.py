@@ -26,6 +26,7 @@ max_tokens = int(os.environ.get('MAX_TOKENS', 200))
 mongo_db = os.environ.get('MONGO_DB')
 mongo_coll = os.environ.get('MONGO_COLL')
 model_body_json = os.environ.get('MODEL_BODY_JSON')
+mdb_index_name = os.environ.get('MONGO_INDEX_NAME')
 #model_body_json_claude = os.environ.get('MODEL_BODY_JSON_CLAUDE')
 # Initialize AWS services
 # s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
@@ -124,7 +125,7 @@ def lambda_handler(event, context):
                 "path": "embedding",
                 "numCandidates": 100,
                 "limit": 4,
-                "index": "documentsearch"
+                "index": mdb_index_name
             }
         }]
 
