@@ -18,17 +18,17 @@ model_id = os.environ.get('MODEL_ID', 'amazon.titan-embed-text-v1')  # Default v
 max_tokens = int(os.environ.get('MAX_TOKENS', 200))  # Default value if not set
 mongo_db = os.environ.get('MONGO_DB')
 mongo_coll = os.environ.get('MONGO_COLL')
-
+region_name = os.environ.get('REGION')
 
 # Initialize AWS services
 
 s3 = boto3.client('s3')
 textract = boto3.client('textract')
-bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
-
+bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
+#
 # s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
 # textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1",aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
 
 
 class BedrockRuntimeWrapper:
@@ -41,7 +41,7 @@ class BedrockRuntimeWrapper:
         try:
             body = {"inputText": text}
             response = self.bedrock_runtime_client.invoke_model(
-                modelId="amazon.titan-embed-text-v1", body=json.dumps(body))
+                modelId=model_id, body=json.dumps(body))
             response_body = json.loads(response["body"].read())
             return response_body["embedding"]
         except ClientError:
