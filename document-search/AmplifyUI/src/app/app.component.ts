@@ -4,7 +4,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { API, graphqlOperation } from 'aws-amplify';
+//import { API, graphqlOperation } from 'aws-amplify';
+import { getAnswerBasedOnCategory } from '../graphql/queries';
+import { generateClient } from 'aws-amplify/api';
 import { GraphQLResult } from '@aws-amplify/api-graphql';
 import { environment } from '../environments/environment';
 interface ChatMessage {
@@ -137,17 +139,25 @@ export class AppComponent {
 
   async askQuestionOpenAI() {
     try {
-      const response = await API.graphql(graphqlOperation(`
-        query MyQuery($question: String!,$category: String!) {
-          getAnswerBasedOnCategoryFromTitan(question: $question,category: $category)
-        }
-      `, { question: this.userQuestion, category: this.selectedCategory })) as GraphQLResult<any>;
+
+      const client = generateClient();
+      const response = await client.graphql({ query: getAnswerBasedOnCategory, variables :{ question: this.userQuestion, category: this.selectedCategory} });
+
+
+      // const response = await API.graphql(graphqlOperation(`
+      //   query MyQuery($question: String!,$category: String!) {
+      //     getAnswerBasedOnCategory(question: $question,category: $category)
+      //   }
+      // `, { question: this.userQuestion, category: this.selectedCategory })) as GraphQLResult<any>;
+
 
 
 
       if ('data' in response && response.data) {
-        const answerResponse = response.data.getAnswerBasedOnCategoryFromTitan;
-        const cleanedResponse = answerResponse.replace(/\\n/g, "");
+        const answerResponse = response.data.getAnswerBasedOnCategory;
+        //check answerResponse is null
+        if(answerResponse){
+          const cleanedResponse = answerResponse.replace(/\\n/g, "");
         // Attempt to parse the response if it's a string
         let answer;
         try {
@@ -165,6 +175,9 @@ export class AppComponent {
           answer = answer.substring(1, answer.length - 1);
         }
         this.handleAnswer(answer);
+          
+        }
+        
       }
     } catch (error: any) {
       this.errorMessage = error.message || 'Error processing your question';
