@@ -34,13 +34,13 @@ mongodb_uri = f"mongodb+srv://{safe_db_user}:{safe_db_pwd}@{cluster_conn_string.
 
 # Initialize AWS services
 
-# s3 = boto3.client('s3')
-# textract = boto3.client('textract')
-# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
+s3 = boto3.client('s3')
+textract = boto3.client('textract')
+bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
 
-s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key, region_name=region_name)
+# textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
 
 
 class BedrockRuntimeWrapper:
@@ -139,7 +139,7 @@ if __name__ == "__main__":
             "name": "sampleimages-imagesearch"
           },
           "object": {
-            "key": "pdfextracttitan/2022-financial-statements.pdf"
+            "key": "pdfextracttitan/SampleInput.pdf"
           }
         }
       }
