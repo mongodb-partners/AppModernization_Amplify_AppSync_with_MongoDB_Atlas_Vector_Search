@@ -6,6 +6,12 @@ import time
 import os
 from pathlib import Path
 import certifi
+import logging
+from urllib.parse import quote_plus
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Load environment variables from .env file if it exists
 env_path = Path('.') / '.env'
 if env_path.is_file():
@@ -13,22 +19,28 @@ if env_path.is_file():
     load_dotenv(env_path)
 aws_access_key_id = os.environ.get('ACCESS_KEY_ID')
 aws_secret_access_key = os.environ.get('SECRET_ACCESS_KEY')
-mongodb_uri = os.environ.get('MONGO_DB_URI')
+#mongodb_uri = os.environ.get('MONGO_DB_URI')
 model_id = os.environ.get('MODEL_ID', 'amazon.titan-embed-text-v1')  # Default value if not set
 max_tokens = int(os.environ.get('MAX_TOKENS', 200))  # Default value if not set
 mongo_db = os.environ.get('MONGO_DB')
 mongo_coll = os.environ.get('MONGO_COLL')
 region_name = os.environ.get('REGION')
+cluster_conn_string = os.environ.get('CLUSTER_CONN_STRING')
+db_user = os.environ.get('DB_USER')
+db_pwd = os.environ.get('DB_PWD')
+safe_db_user = quote_plus(db_user)
+safe_db_pwd = quote_plus(db_pwd)
+mongodb_uri = f"mongodb+srv://{safe_db_user}:{safe_db_pwd}@{cluster_conn_string.split('//')[1]}/?retryWrites=true&w=majority"
 
 # Initialize AWS services
 
-s3 = boto3.client('s3')
-textract = boto3.client('textract')
-bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
-#
-# s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-# textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
-# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+# s3 = boto3.client('s3')
+# textract = boto3.client('textract')
+# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
+
+s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+textract = boto3.client('textract',aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
+bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key)
 
 
 class BedrockRuntimeWrapper:
@@ -53,7 +65,7 @@ def lambda_handler(event, context):
     try:
         bucket_name = event['Records'][0]['s3']['bucket']['name']
         file_key = event['Records'][0]['s3']['object']['key']
-
+        logger.info(f"Processing file: {file_key} from bucket: {bucket_name}")
         # Get the object from S3
         response = s3.get_object(Bucket=bucket_name, Key=file_key)
         pdf_file = response['Body'].read()
@@ -63,7 +75,7 @@ def lambda_handler(event, context):
         start_job_response = textract.start_document_text_detection(
             DocumentLocation={'S3Object': {'Bucket': bucket_name, 'Name': file_key}})
         job_id = start_job_response['JobId']
-
+        logger.info(f"Started Textract job with ID: {job_id}")
         # Check the job status
         def check_job_status(job_id):
             job_status_response = textract.get_document_text_detection(JobId=job_id)

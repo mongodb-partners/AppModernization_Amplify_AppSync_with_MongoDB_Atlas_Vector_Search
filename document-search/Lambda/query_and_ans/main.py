@@ -1,4 +1,6 @@
 import json
+from urllib.parse import quote_plus
+
 import boto3
 import os
 import pymongo
@@ -16,7 +18,13 @@ if env_path.is_file():
 # Environment variables
 aws_access_key_id = os.environ.get('ACCESS_KEY_ID')
 aws_secret_access_key = os.environ.get('SECRET_ACCESS_KEY')
-mongodb_uri = os.environ.get('MONGO_DB_URI')
+cluster_conn_string = os.environ.get('CLUSTER_CONN_STRING')
+db_user = os.environ.get('DB_USER')
+db_pwd = os.environ.get('DB_PWD')
+safe_db_user = quote_plus(db_user)
+safe_db_pwd = quote_plus(db_pwd)
+mongodb_uri = f"mongodb+srv://{safe_db_user}:{safe_db_pwd}@{cluster_conn_string.split('//')[1]}/?retryWrites=true&w=majority"
+
 model_id_embed = os.environ.get('MODEL_ID', 'amazon.titan-embed-text-v1')
 model_id_qa_titan = os.environ.get('MODEL_ID_QA', 'amazon.titan-text-express-v1')
 model_id_qa_claude = os.environ.get('MODEL_ID_QA_CLAUDE', 'anthropic.claude-v2')
@@ -27,14 +35,15 @@ mongo_db = os.environ.get('MONGO_DB')
 mongo_coll = os.environ.get('MONGO_COLL')
 model_body_json = os.environ.get('MODEL_BODY_JSON')
 mdb_index_name = os.environ.get('MONGO_INDEX_NAME')
+region_name = os.environ.get('REGION')
 #model_body_json_claude = os.environ.get('MODEL_BODY_JSON_CLAUDE')
-# Initialize AWS services
+#Initialize AWS services
 # s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
-# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1",
+# bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name,
 #                                       aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
 
-s3 = boto3.client('s3', region_name='us-east-2')
-bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+s3 = boto3.client('s3', region_name=region_name)
+bedrock_runtime_client = boto3.client(service_name="bedrock-runtime", region_name=region_name)
 
 
 class BedrockRuntimeWrapper:
