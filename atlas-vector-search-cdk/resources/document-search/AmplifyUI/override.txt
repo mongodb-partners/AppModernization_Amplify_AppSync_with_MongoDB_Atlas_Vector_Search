@@ -1,0 +1,25 @@
+import { AmplifyProjectInfo, AmplifyRootStackTemplate } from '@aws-amplify/cli-extensibility-helper';
+export function override(resources: AmplifyRootStackTemplate, amplifyProjectInfo: AmplifyProjectInfo) {
+    const authRole = resources.authRole;
+    if (authRole) {
+        const basePolicies = authRole.policies ? 
+        (Array.isArray(authRole.policies) ? authRole.policies : [authRole.policies]) : 
+        [];
+    authRole.policies = [
+        ...basePolicies,
+        {
+            policyName: "amplify-permissions-custom-resources",
+            policyDocument: {
+                Version: "2012-10-17",
+                Statement: [
+                    {
+                        Resource: "arn:aws:s3:::avs-document-search-stack*",
+                        Action: ["s3:GetObject", "s3:PutObject"],
+                        Effect: "Allow",
+                    },
+                ],
+            },
+        },
+    ];
+}
+}

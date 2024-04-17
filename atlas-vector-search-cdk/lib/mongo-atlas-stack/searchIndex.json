@@ -1,0 +1,77 @@
+[
+    {
+        "analyzer": null,
+        "analyzers": null,
+        "collectionName": "pdfextract",
+        "collectionUUID": "ce8cb39a-ad42-4eb5-bbdb-72634db7ca97",
+        "database": "vectorsearch",
+        "definitionVersion": 0,
+        "definitionVersionCreatedAt": "2024-04-08T20:03:44Z",
+        "deleteRequestedDate": null,
+        "indexFeatureVersion": 2,
+        "indexID": "66144da079105638a8346cb1",
+        "lastUpdateDate": null,
+        "mappings": {
+            "dynamic": true,
+            "fields": {
+                "category": {
+                    "normalizer": "lowercase",
+                    "type": "token"
+                },
+                "embedding": {
+                    "dimensions": 1536,
+                    "similarity": "euclidean",
+                    "type": "knnVector"
+                },
+                "fileKey": {
+                    "normalizer": "lowercase",
+                    "type": "token"
+                }
+            }
+        },
+        "name": "documentsearch",
+        "searchAnalyzer": null,
+        "stats": {
+            "atlas-mv270h-shard-00-00": {
+                "dataSize": 418990.0,
+                "errorMessage": "",
+                "lastUpdateDate": "2024-04-10T07:54:32Z",
+                "numOfDocs": 54,
+                "optime": 7356143676457746433,
+                "statusCode": "STEADY",
+                "statusDetail": {
+                    "index": "STEADY",
+                    "synonyms": null
+                }
+            },
+            "atlas-mv270h-shard-00-01": {
+                "dataSize": 425715.0,
+                "errorMessage": "",
+                "lastUpdateDate": "2024-04-10T07:54:36Z",
+                "numOfDocs": 54,
+                "optime": 7356143676457746433,
+                "statusCode": "STEADY",
+                "statusDetail": {
+                    "index": "STEADY",
+                    "synonyms": null
+                }
+            },
+            "atlas-mv270h-shard-00-02": {
+                "dataSize": 419587.0,
+                "errorMessage": "",
+                "lastUpdateDate": "2024-04-10T07:54:34Z",
+                "numOfDocs": 54,
+                "optime": 7356143676457746433,
+                "statusCode": "STEADY",
+                "statusDetail": {
+                    "index": "STEADY",
+                    "synonyms": null
+                }
+            }
+        },
+        "status": "STEADY",
+        "storedSource": null,
+        "synonyms": null,
+        "type": null
+    }
+]
