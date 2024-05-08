@@ -30,6 +30,10 @@ https://www.python.org/downloads/release/python-3122/
 https://www.npmjs.com/package/npm/v/10.5.0
 npm install -g @aws-amplify/cli@12.11.0
 npm install -g aws-cdk@2.135.0
+aws configure
+
+- **Example Installing Prerequisites in Amazon EC2 Linux Machine**
+Refer EC2SETUP.md
 
 ## Usage
 
@@ -44,4 +48,5 @@ npm install -g aws-cdk@2.135.0
 - **AWS Default Profile**: The project assumes that the AWS default profile will be used for authentication.
 - **Pip Install**: Ensure that python version 3.12 is installed. (pip3 --version should work)
 - **MongoDB Atlas CDK Resource Activation**: Make sure to activate Atlas CDK resources in your AWS account before running the project. 
-- **Search Index needs to be Manually Created**: Make Sure to create a search Index using the mapping json from /atlas-vector-search-cdk/resources/Mongodb/searchindex.json in the created Atlas Cluster
+
+

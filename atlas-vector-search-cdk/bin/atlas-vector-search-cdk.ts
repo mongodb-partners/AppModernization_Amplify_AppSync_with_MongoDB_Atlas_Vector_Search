@@ -7,8 +7,8 @@ import { DocumentSearchCdkStack } from '../lib/document-search-stack/document-se
 
 const app = new cdk.App();
 new ClusterStack (app,`avs-atlas-stack`,{});
-// new SearchIndexStack (app,`avs-atlas-searchindex-stack`,{});
 new DocumentSearchCdkStack (app,`avs-document-search-stack`,{});
+new SearchIndexStack (app,`avs-atlas-searchindex-stack`,{});
 
 // new AtlasVectorSearchCdkStack(app, 'AtlasVectorSearchCdkStack', {
 //   /* If you don't specify 'env', this stack will be environment-agnostic.

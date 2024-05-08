@@ -59,7 +59,9 @@ fi
 # PDFextract Ingests
 echo "Compiling Doc Search Lambdas"
 cd $DOC_SEARCH_SOURCE/Lambda/pdfextract_ingests
-# rm -r lambdapackage
+if [ -d "lambdapackage" ]; then
+    rm -rf lambdapackage
+fi
 mkdir lambdapackage
 python3 -m venv myenv
 source myenv/bin/activate
@@ -72,8 +74,10 @@ cd $ROOT_SCRIPT_DIR
 
 # query_and_ans
 cd $DOC_SEARCH_SOURCE/Lambda/query_and_ans
-rm -r lambdapackage
 python3 -m venv myenv
+if [ -d "lambdapackage" ]; then
+    rm -rf lambdapackage
+fi
 mkdir lambdapackage
 source myenv/bin/activate
 pip3 install -r requirements.txt

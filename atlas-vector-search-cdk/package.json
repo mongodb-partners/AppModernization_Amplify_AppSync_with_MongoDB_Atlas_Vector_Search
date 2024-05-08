@@ -25,8 +25,9 @@
     "@aws-cdk/aws-amplify": "1.204.0",
     "amplify-headless-interface": "1.17.6",
     "aws-cdk-lib": "2.133.0",
+    "aws-cdk": "2.135.0",
     "awscdk-resources-mongodbatlas": "^3.3.0",
-    "constructs": "10.0.0",
+    "constructs": "10.0.5",
     "source-map-support": "0.5.21"
   }
 }
