@@ -1,7 +1,7 @@
 # Atlas Vector Search and AWS AI ML
 
 ## Introduction
-This repository contains two sophisticated search applications: Image Search and Document Search. Both applications are designed using AWS technologies and advanced machine learning models. They provide intuitive UIs for user interaction and leverage AWS Amplify, AppSync, and Lambda for backend processing.
+This repository contains two sophisticated search applications: Image Search and Document Search. Both applications are designed using AWS technologies and advanced machine learning models. They provide intuitive UIs for user interaction and leverage AWS Amplify, AppSync, and Lambda for backend processing. Currently deployment is enabled for document search, Please follow the below steps to deploy document search application.
 
 ### Technologies Used
 - AWS CDK
