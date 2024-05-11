@@ -38,7 +38,7 @@ Refer EC2SETUP.md
 ## Usage
 
 1. Clone this repository.
-2. Install dependencies referring EC2SETUP.md guide.
+2. Install dependencies referring [EC2SETUP.md](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/EC2SETUP.md) guide.
 3. update global-args.json. 
     - "ATLAS_PUBLIC_KEY": // Atlas Public API Key to access to Atlas services 
     - "ATLAS_PRIVATE_KEY": // Atlas Private API Key to access to Atlas services 
