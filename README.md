@@ -30,18 +30,33 @@ https://www.python.org/downloads/release/python-3122/
 https://www.npmjs.com/package/npm/v/10.5.0
 npm install -g @aws-amplify/cli@12.11.0
 npm install -g aws-cdk@2.135.0
+aws configure
+
+- **Example Installing Prerequisites in Amazon EC2 Linux Machine**
+Refer EC2SETUP.md
 
 ## Usage
 
 1. Clone this repository.
-2. Install dependencies.
-3. update global-args.json
+2. Install dependencies referring EC2SETUP.md guide.
+3. update global-args.json. 
+    - "ATLAS_PUBLIC_KEY": // Atlas Public API Key to access to Atlas services 
+    - "ATLAS_PRIVATE_KEY": // Atlas Private API Key to access to Atlas services 
+    - "orgId": // Atlas Org ID under the CDK will create the Cluster
+    - "projectId": // Atlas Project ID under the CDK will create the Cluster
+    - "clusterName": "atlas-vector-search-cluster" // Atlas Default Cluster Name
+    - "region": "US_EAST_1" // Atlas Default Cluster Region
+    - "instanceSize": "M10" // Atlas Default Cluster Instance Size
 4. Run deploy.sh
+5. Access the URL at end of the deployment. Log looks something like below
+"✔ Zipping artifacts completed.
+✔ Deployment complete!
+https://dev.d17sfqd3r65pwc.amplifyapp.com"
 
 ## Expectations
 
 - **Tool Compatibility**: The project is expected to work with the "expect" tool. (https://man7.org/linux/man-pages/man1/expect.1.html)
 - **AWS Default Profile**: The project assumes that the AWS default profile will be used for authentication.
 - **Pip Install**: Ensure that python version 3.12 is installed. (pip3 --version should work)
-- **MongoDB Atlas CDK Resource Activation**: Make sure to activate Atlas CDK resources in your AWS account before running the project. 
-- **Search Index needs to be Manually Created**: Make Sure to create a search Index using the mapping json from /atlas-vector-search-cdk/resources/Mongodb/searchindex.json in the created Atlas Cluster
+- **MongoDB Atlas CDK Resource Activation**: Make sure to activate Atlas CDK resources in your AWS account before running the project.
+- **Creating Search Index on Cluster**: Using the application first time, Once we have the data in the cluster we have to create search index. With these [mappings](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/Mongodb/searchindex.json). You can even use the helper Script to create the search index [deployAtlasSearchIndex.sh](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/deployAtlasSearchIndex.sh)
