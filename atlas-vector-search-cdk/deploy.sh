@@ -140,34 +140,3 @@ cp override.txt amplify/backend/awscloudformation/override.ts
 
 amplify push --yes
 amplify publish --yes
-
-# Published few more steps that is manual now
-# echo "1. Update Auth Role with the following policy"
-# echo "1. Overriding the auth role created by amplify"
-
-# Convert keys with underscores and prefix with '$' using jq and save to a new file
-# jq -c '{
-#     aws_appsync_apiId: .["avs-document-search-stack"].awsappsyncapiId,
-#     aws_appsync_graphqlEndpoint: .["avs-document-search-stack"].awsappsyncgraphqlEndpoint,
-#     aws_project_region: .["avs-document-search-stack"].awsprojectregion,
-#     aws_appsync_region: .["avs-document-search-stack"].awsappsyncregion,
-#     aws_appsync_authenticationType: .["avs-document-search-stack"].awsappsyncauthenticationType,
-#     aws_appsync_apiKey: .["avs-document-search-stack"].awsappsyncapiKey
-# }' "$OUTPUT_FILE" > "$TEMP_FILE"
-
-# echo "Keys converted and saved to $TEMP_FILE"
-
-# cp "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration.json" "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfigurationBckup.json"
-# cat "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration.json" "$TEMP_FILE"  | jq -s '.[0] + .[1]' > "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration_temp.json"
-# cp "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration_temp.json" "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration.json"
-
-# rm "$DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration_temp.json"
-# rm "$TEMP_FILE"
-
-
-
-
-#jq -s '.[0] + .[1]' $TEMP_FILE $DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration.json $TEMP_FILE > $DOC_SEARCH_SOURCE/AmplifyUI/src/amplifyconfiguration_updated.json
-
-# jq -n --argfile resources/document-search/AmplifyUI/src/amplifyconfiguration.json --argfile json2 avs-document-search-output.json '$json2 + $json1' > resources/document-search/AmplifyUI/src/amplifyconfiguration_updated.json
-

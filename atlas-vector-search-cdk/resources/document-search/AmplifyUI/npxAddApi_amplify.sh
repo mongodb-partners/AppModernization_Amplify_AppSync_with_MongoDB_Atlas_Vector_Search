@@ -11,6 +11,7 @@ generatedCodeFile="src/API.ts"
 
 # Run Amplify CLI command with expect
 expect -c "
+set timeout 20
 spawn npx @aws-amplify/cli codegen add --apiId $awsappsyncapiId --region us-east-1
 expect \"Choose the code generation language target\"
 send -- \"2\r\"

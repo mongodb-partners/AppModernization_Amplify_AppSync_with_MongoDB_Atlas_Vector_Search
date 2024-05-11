@@ -1,20 +1,15 @@
 {
-  "mappings": {
-    "dynamic": true,
-    "fields": {
-      "category": {
-        "normalizer": "lowercase",
-        "type": "token"
-      },
-      "embedding": {
-        "dimensions": 1536,
-        "similarity": "euclidean",
-        "type": "knnVector"
-      },
-      "fileKey": {
-        "normalizer": "lowercase",
-        "type": "token"
-      }
-    }
+  "category": {
+    "normalizer": "lowercase",
+    "type": "token"
+  },
+  "embedding": {
+    "dimensions": 1536,
+    "similarity": "euclidean",
+    "type": "knnVector"
+  },
+  "fileKey": {
+    "normalizer": "lowercase",
+    "type": "token"
   }
 }

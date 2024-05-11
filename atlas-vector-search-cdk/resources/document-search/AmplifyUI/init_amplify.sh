@@ -2,6 +2,7 @@
 
 # Run the amplify init command with expect
 expect -c '
+set timeout 20
 spawn amplify init
 
 expect "? Enter a name for the project *"

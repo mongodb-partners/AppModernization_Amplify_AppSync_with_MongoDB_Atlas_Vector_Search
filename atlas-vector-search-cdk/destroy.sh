@@ -11,6 +11,7 @@ TEMP_FILE="avs-document-search-output-modified.json"
 # Delete S3 buckets contents before executing destroy
 cdk destroy $DOC_SEARCH_STACK
 cdk destroy $ATLAS_CLUSTER_STACK
+# cdk destroy $ATLAS_SEARCH_INDEX_STACK
 
 rm $OUTPUT_FILE
 

@@ -38,7 +38,7 @@ Refer EC2SETUP.md
 ## Usage
 
 1. Clone this repository.
-2. Install dependencies.
+2. Install dependencies referring EC2SETUP.md guide.
 3. update global-args.json
 4. Run deploy.sh
 

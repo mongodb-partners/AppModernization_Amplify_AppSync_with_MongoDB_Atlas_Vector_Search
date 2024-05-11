@@ -45,7 +45,7 @@ export class SearchIndexStack extends cdk.Stack {
       analyzer: 'lucene.standard',
       mappings: {
         fields: JSON.stringify(mappings),
-        dynamic: false,
+        dynamic: true,
       },
     });
   }
