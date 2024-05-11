@@ -1,7 +1,7 @@
 # Prerequisites Installation
 
 This guide will walk you through setting up your development environment for the "AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search" project on an Amazon Linux 2 EC2 instance. Follow these steps in order to install all necessary tools and dependencies.
-- An EC2 instance running Amazon Linux 2.
+- An EC2 instance running Amazon Linux 2. (This is the only Supported OS Type)
 - User with sudo privileges.
 
 ## Installation Steps

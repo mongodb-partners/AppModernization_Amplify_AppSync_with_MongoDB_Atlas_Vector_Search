@@ -24,17 +24,6 @@ Before running this project, please ensure you have the following dependencies i
 - **jq 1.7.1**
 - **Python 3.12**
 
-Commands and Links: 
-https://github.com/jqlang/jq/releases
-https://www.python.org/downloads/release/python-3122/
-https://www.npmjs.com/package/npm/v/10.5.0
-npm install -g @aws-amplify/cli@12.11.0
-npm install -g aws-cdk@2.135.0
-aws configure
-
-- **Example Installing Prerequisites in Amazon EC2 Linux Machine**
-Refer EC2SETUP.md
-
 ## Usage
 
 1. Clone this repository.
