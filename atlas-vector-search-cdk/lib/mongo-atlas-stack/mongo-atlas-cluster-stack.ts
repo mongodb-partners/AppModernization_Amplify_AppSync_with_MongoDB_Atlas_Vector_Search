@@ -1,69 +1,4 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Construct } from 'constructs';
-// import { AtlasBasic } from 'awscdk-resources-mongodbatlas';
 import * as fs from 'fs';
-
-// interface AtlasStackProps {
-//   readonly orgId: string;
-//   readonly profile: string;
-//   readonly clusterName: string;
-//   readonly region: string;
-//   readonly ip: string;
-//   readonly instanceSize:string;
-// }
-
-// export class MongoDBAtlasStack extends cdk.Stack {
-//   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-//     super(scope, id, props);
-
-//     const globalArgs = this.readGlobalArgs();
-//     const atlasBasic = new AtlasBasic(this, 'AtlasBasic', {
-//         clusterProps: {
-//         name: globalArgs.clusterName,  
-//         replicationSpecs:   [
-//         {
-//             numShards: 1,
-//             advancedRegionConfigs: [
-//                 {
-//                     analyticsSpecs: {
-//                         ebsVolumeType: "STANDARD",
-//                         instanceSize: globalArgs.instanceSize,
-//                         nodeCount: 1
-//                     },
-//                     electableSpecs: {
-//                         ebsVolumeType: "STANDARD",
-//                         instanceSize: globalArgs.instanceSize,
-//                         nodeCount: 3
-//                     },
-//                     priority:  7,
-//                     regionName: globalArgs.region,
-//                 }]
-//         }]        
-//         },
-//         projectProps: {
-//           orgId: globalArgs.orgId,
-//         },
-
-//         ipAccessListProps: {
-//           accessList:[
-//             { ipAddress: globalArgs.ip, comment: 'My first IP address' }
-//           ]
-//         },
-//         profile: globalArgs.profile,
-//       });
-
-//   }
-
-//   readGlobalArgs(): AtlasStackProps {
-//     const globalArgsPath = 'global-args.json';
-//     const globalArgsContent = fs.readFileSync(globalArgsPath, 'utf8');
-//     const globalArgs: AtlasStackProps = JSON.parse(globalArgsContent);
-//     return globalArgs;
-//   }
-// }
-
-
-
 // This example creates a project and a cluster in Atlas using the L1 resources.
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
@@ -98,12 +33,6 @@ export class ClusterStack extends cdk.Stack {
 
     const atlasProps = this.readGlobalArgs();
 
-    // const projectRes = new CfnProject(this, 'ProjectResource', {
-    //   name: atlasProps.projName,
-    //   orgId: atlasProps.orgId,
-    //   profile: atlasProps.profile
-    // });
-
     const clusterRes = new CfnCluster(this, 'ClusterResource', {
       name: atlasProps.clusterName,
       projectId: atlasProps.projectId,
@@ -134,12 +63,6 @@ export class ClusterStack extends cdk.Stack {
       roles: dbDefaults.roles,
       password: dbDefaults.password,
     });
-
-    // const concatUserPass = `://${dbDefaults.username}:${dbDefaults.password}@`;
-    // const ClusterConn=clusterRes.connectionStrings.standardSrv || "No Conn String"
-    // const subStringConn=ClusterConn.substring(13)
-
-    // const updatedConnection = `mongodb+srv${concatUserPass}${subStringConn}`;
     
     new cdk.CfnOutput(this, 'ClusterConnectionString', {
       value: clusterRes.connectionStrings.standardSrv || "No Conn String",

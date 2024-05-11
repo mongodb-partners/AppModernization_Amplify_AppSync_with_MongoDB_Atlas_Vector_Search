@@ -7,7 +7,6 @@
     "region": "US_EAST_1",
     "profile": "default",
     "instanceSize": "M10",
-    "ip": "0.0.0.0/1",
     "PDFExtractInjestsEnv":{
         "MODEL_ID": "amazon.titan-embed-text-v1",
         "MAX_TOKENS": "4096",

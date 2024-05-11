@@ -10,7 +10,6 @@ DOC_SEARCH_STACK="avs-document-search-stack"
 IMG_SEARCH_SOURCE="resources/image-search"
 OUTPUT_FILE="avs-document-search-output.json"
 TEMP_FILE="avs-document-search-output-modified.json"
-pdfextracts=""
 
 # Read the values from global-args.json
 ATLAS_PUBLIC_KEY=$(jq -r '.ATLAS_PUBLIC_KEY' global-args.json)
@@ -34,9 +33,7 @@ aws cloudformation deploy \
     PrivateKey="$ATLAS_PRIVATE_KEY" \
   --capabilities CAPABILITY_NAMED_IAM
 
-# aws s3 cp .pdf /pdfe
 
 cdk deploy $ATLAS_SEARCH_INDEX_STACK --require-approval never
 
-# exit 0
 
