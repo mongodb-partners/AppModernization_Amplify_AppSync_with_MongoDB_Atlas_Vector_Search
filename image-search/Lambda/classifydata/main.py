@@ -16,8 +16,8 @@ if env_path.is_file():
     load_dotenv(env_path)
 
 # Assuming environment variables are set in the Lambda's configuration
-aws_access_key_id = os.environ['ACCESS_KEY_ID']
-aws_secret_access_key = os.environ['SECRET_ACCESS_KEY']
+# aws_access_key_id = os.environ['ACCESS_KEY_ID']
+# aws_secret_access_key = os.environ['SECRET_ACCESS_KEY']
 region_name = os.environ['REGION']
 cluster_conn_string = os.environ.get('CLUSTER_CONN_STRING')
 db_user = os.environ.get('DB_USER')
