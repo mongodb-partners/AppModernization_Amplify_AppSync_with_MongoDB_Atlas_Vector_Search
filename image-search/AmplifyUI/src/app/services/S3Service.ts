@@ -16,7 +16,7 @@ export class S3Service {
     const params = {
       Bucket: environment.s3Bucket, // your bucket name
       Key: environment.staticImagePath+`/${filePath}`, // file path in bucket
-      Expires: 60 // time in seconds until the pre-signed URL expires
+      Expires: 60060 // time in seconds until the pre-signed URL expires
     };
 
     return new Promise((resolve, reject) => {

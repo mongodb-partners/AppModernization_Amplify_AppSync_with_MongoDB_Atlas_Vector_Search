@@ -4,6 +4,9 @@ const MongoClient = require('mongodb').MongoClient;
 // Load environment variables
 require('dotenv').config();
 
+// AWS.config.update({ region: process.env.REGION });
+
+
 AWS.config.update({ region: process.env.REGION,
     accessKeyId: process.env.ACCESS_KEY_ID,
     secretAccessKey: process.env.SECRET_ACCESS_KEY  });
@@ -18,6 +21,12 @@ exports.handler = async (event) => {
         Bucket: process.env.S3_BUCKET,
         Key: imagePath
     };
+
+     // Construct MongoDB URL
+     const safeUser = encodeURIComponent(process.env.DB_USER);
+     const safePwd = encodeURIComponent(process.env.DB_PWD);
+     const mongoUrl = `mongodb+srv://${safeUser}:${safePwd}@${process.env.CLUSTER_CONN_STRING.split('//')[1]}`;
+ 
 
     try {
         const imageData = await s3.getObject(s3Params).promise();
@@ -35,7 +44,7 @@ exports.handler = async (event) => {
         const sagemakerResponse = await sagemakerRuntime.invokeEndpoint(sagemakerParams).promise();
         const embeddings = JSON.parse(Buffer.from(sagemakerResponse.Body).toString());
 
-        const client = await MongoClient.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        const client = await MongoClient.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
         const collection = client.db(process.env.MONGO_DB).collection(process.env.MONGO_COLLECTION);
 
         let aggregateQuery;

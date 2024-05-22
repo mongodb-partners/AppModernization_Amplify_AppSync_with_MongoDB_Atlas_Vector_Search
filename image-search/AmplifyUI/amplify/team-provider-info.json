@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-imagesearchtest-dev-135701-authRole",
+      "UnauthRoleArn": "arn:aws:iam::816546967292:role/amplify-imagesearchtest-dev-135701-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::816546967292:role/amplify-imagesearchtest-dev-135701-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-imagesearchtest-dev-135701-deployment",
+      "UnauthRoleName": "amplify-imagesearchtest-dev-135701-unauthRole",
+      "StackName": "amplify-imagesearchtest-dev-135701",
+      "StackId": "arn:aws:cloudformation:us-east-2:816546967292:stack/amplify-imagesearchtest-dev-135701/f2c34a50-fb59-11ee-8f03-02fcc185f0ff",
+      "AmplifyAppId": "d30cpbscvgmek6"
+    },
+    "categories": {
+      "auth": {
+        "imagesearchtestfb2e0788": {}
+      }
+    }
+  }
+}

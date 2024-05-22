@@ -1,16 +1,16 @@
 projects:
-  mongodbapi:
+  ImageSearchAPI:
     schemaPath: src/graphql/schema.json
     includes:
-      - src/graphql/**/*.ts
+      - src/graphql/**/*.graphql
     excludes:
       - ./amplify/**
-      - src/API.ts
+      - src/app/API.service.ts
     extensions:
       amplify:
-        codeGenTarget: typescript
-        generatedFileName: src/API.ts
+        codeGenTarget: angular
+        generatedFileName: src/app/API.service.ts
         docsFilePath: src/graphql
-        region: us-east-2
-        apiId: gtjd5o5ednarjidzdanrjp6siq
+        region: us-east-1
+        apiId: zf5qnuhb5fh6flerqercdjpx4m
         maxDepth: 2
