@@ -62,4 +62,4 @@ Refer [EC2SETUP.md](https://github.com/mongodb-partners/AppModernization_Amplify
 - **Creating Search Indexes on Cluster**: Using the application first time, Once we have the data in the cluster we have to create search index. With these [Document Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/document-search/Mongodb/searchindex.json). 
 [Image Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/Mongodb/searchindex.json)
 You can even use the helper Script to create the search index [deployAtlasSearchIndex.sh](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/deployAtlasSearchIndex.sh)
-- 
+  
