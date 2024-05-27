@@ -62,6 +62,4 @@ This guide will walk you through the process of ingesting a dataset from Amazon 
   }
 }
 ```
-### 7. Perform a Vector Search Test
-- Finally, test the setup by performing a vector search in MongoDB.
-- Use the embeddings and the search index to retrieve relevant results based on the query
+
