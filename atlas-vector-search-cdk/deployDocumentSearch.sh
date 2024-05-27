@@ -39,44 +39,12 @@ ROOT_SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 
 # Check if the JSON file exists
-if [ ! -f "$DOC_SEARCH_OUTPUT_FILE" ]; then
-  echo "JSON file not found: $DOC_SEARCH_OUTPUT_FILE"
-  INIT_DEPLOY=true
-else
-  INIT_DEPLOY=false
-fi
-
-# Compile Lambdas
-# PDFextract Ingests
-echo "Compiling Doc Search Lambdas"
-cd $DOC_SEARCH_SOURCE/Lambda/pdfextract_ingests
-if [ -d "lambdapackage" ]; then
-    rm -rf lambdapackage
-fi
-mkdir lambdapackage
-python3 -m venv myenv
-source myenv/bin/activate
-pip3 install -r requirements.txt
-cp -r myenv/lib/python*/site-packages/* lambdapackage
-cp main.py lambdapackage
-deactivate
-rm -r myenv/
-cd $ROOT_SCRIPT_DIR
-
-# query_and_ans
-cd $DOC_SEARCH_SOURCE/Lambda/query_and_ans
-python3 -m venv myenv
-if [ -d "lambdapackage" ]; then
-    rm -rf lambdapackage
-fi
-mkdir lambdapackage
-source myenv/bin/activate
-pip3 install -r requirements.txt
-cp -r myenv/lib/python*/site-packages/* lambdapackage
-cp main.py lambdapackage
-deactivate
-rm -r myenv/
-cd $ROOT_SCRIPT_DIR
+# if [ ! -f "$DOC_SEARCH_OUTPUT_FILE" ]; then
+#   echo "JSON file not found: $DOC_SEARCH_OUTPUT_FILE"
+#   INIT_DEPLOY=true
+# else
+#   INIT_DEPLOY=false
+# fi
 
 # Deploy Atlas Cluster, S3, Appsync and Lambdas using CDK
 cdk deploy $ATLAS_CLUSTER_STACK --require-approval never
@@ -130,5 +98,3 @@ cp override.txt amplify/backend/awscloudformation/override.ts
 
 amplify push --yes
 amplify publish --yes
-
-exit 0

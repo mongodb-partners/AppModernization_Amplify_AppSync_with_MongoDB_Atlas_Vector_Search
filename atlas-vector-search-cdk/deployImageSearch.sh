@@ -36,40 +36,6 @@ aws cloudformation deploy \
 # Get the directory of the script
 ROOT_SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Compiling Image Search Lambdas"
-echo  "Vector Search"
-cd $IMG_SEARCH_SOURCE/Lambda/vectorsearch
-if [ -d "lambdapackage" ]; then
-    rm -rf lambdapackage
-fi
-mkdir lambdapackage
-# Copy all files and directories except the lambdapackage directory itself
-for item in *; do
-    if [ "$item" != "lambdapackage" ]; then
-        cp -r "$item" lambdapackage/
-    fi
-done
-cd lambdapackage
-npm install
-cd $ROOT_SCRIPT_DIR
-
-echo "ClassifyData Lambda"
-cd $IMG_SEARCH_SOURCE/Lambda/classifydata
-if [ -d "lambdapackage" ]; then
-    rm -rf lambdapackage
-fi
-mkdir lambdapackage
-python3 -m venv myenv
-source myenv/bin/activate
-pip3 install -r requirements.txt
-cp -r myenv/lib/python*/site-packages/* lambdapackage
-cp main.py lambdapackage
-deactivate
-rm -r myenv/
-cd $ROOT_SCRIPT_DIR
-
-pwd
-
 # Deploy Atlas Cluster
 cdk deploy $ATLAS_CLUSTER_STACK --require-approval never
 cdk deploy $S3_STACK --require-approval never
