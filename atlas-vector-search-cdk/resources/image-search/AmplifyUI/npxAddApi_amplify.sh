@@ -7,14 +7,14 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 rm "$SCRIPT_DIR/.graphqlconfig.yml"
 
 # Define variables
-generatedCodeFile="src/API.ts"
+generatedCodeFile="src/app/API.service.ts"
 
 # Run Amplify CLI command with expect
 expect -c "
 set timeout 20
-spawn npx @aws-amplify/cli codegen add --apiId $DocumentSearchapiId --region us-east-1
+spawn npx @aws-amplify/cli codegen add --apiId $ImageSearchapiId --region us-east-1
 expect \"Choose the code generation language target\"
-send -- \"2\r\"
+send -- \"1\r\"
 expect \"Enter the file name pattern of graphql queries, mutations and subscriptions\"
 send -- \"\r\"
 expect \"Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions\"

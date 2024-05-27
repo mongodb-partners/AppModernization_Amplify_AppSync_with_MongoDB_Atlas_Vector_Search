@@ -4,14 +4,25 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CfnSearchIndex, CfnProject, CfnCluster, AdvancedRegionConfigProviderName, CfnDatabaseUser, CfnDatabaseUserProps } from 'awscdk-resources-mongodbatlas';
 
-interface AtlasStackProps {
-  readonly orgId: string;
-  readonly profile: string;
-  readonly projectId: string;
-  readonly clusterName: string;
-  readonly clusterType: string;
-  readonly instanceSize: string;
-  readonly region: string;
+interface GlobalArgs {
+  ATLAS_PUBLIC_KEY: string;
+  ATLAS_PRIVATE_KEY: string;
+  orgId: string;
+  projectId: string;
+  clusterName: string;
+  region: string;
+  profile: string;
+  instanceSize: string;
+  dataApi: string;
+  PDFExtractInjestsEnv: Record<string, string>;
+  QueryAndAnsEnv: Record<string, string>;
+  VectorSearchEnv: Record<string, string>;
+  ClassifyDataEnv: Record<string, string>;
+  [key: string]: any;
+}
+
+interface CustomStackProps extends cdk.StackProps {
+  globalArgs: GlobalArgs;
 }
 
 const dbDefaults = {
@@ -27,17 +38,18 @@ const dbDefaults = {
   ],
 };
 
+// ClusterStack class definition
 export class ClusterStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: CustomStackProps) {
     super(scope, id, props);
 
-    const atlasProps = this.readGlobalArgs();
+    const { globalArgs } = props;
 
     const clusterRes = new CfnCluster(this, 'ClusterResource', {
-      name: atlasProps.clusterName,
-      projectId: atlasProps.projectId,
-      profile: atlasProps.profile,
-      clusterType: atlasProps.clusterType,
+      name: globalArgs.clusterName,
+      projectId: globalArgs.projectId,
+      profile: globalArgs.profile,
+      clusterType: globalArgs.clusterType,
       backupEnabled: true,
       pitEnabled: false,
       replicationSpecs: [{
@@ -45,11 +57,11 @@ export class ClusterStack extends cdk.Stack {
         advancedRegionConfigs: [{
           electableSpecs: {
             ebsVolumeType: "STANDARD",
-            instanceSize: atlasProps.instanceSize,
+            instanceSize: globalArgs.instanceSize,
             nodeCount: 3,
           },
           priority: 7,
-          regionName: atlasProps.region,
+          regionName: globalArgs.region,
         }]
       }]
     });
@@ -58,12 +70,12 @@ export class ClusterStack extends cdk.Stack {
     const mDBUser = new CfnDatabaseUser(this, "db-user", {
       profile: dbDefaults.profile,
       databaseName: dbDefaults.dbName,
-      projectId: atlasProps.projectId,
+      projectId: globalArgs.projectId,
       username: dbDefaults.username,
       roles: dbDefaults.roles,
       password: dbDefaults.password,
     });
-    
+
     new cdk.CfnOutput(this, 'ClusterConnectionString', {
       value: clusterRes.connectionStrings.standardSrv || "No Conn String",
       description: 'Cluster Connection String',
@@ -81,41 +93,7 @@ export class ClusterStack extends cdk.Stack {
       description: 'dbPassword',
       exportName: 'dbPassword'
     });
-    
-}
 
-  readGlobalArgs(): AtlasStackProps {
-    const globalArgsPath = 'global-args.json';
-    let globalArgs: AtlasStackProps = {
-      orgId: '',
-      profile: 'default',
-      projectId: '',
-      clusterName: 'atlas-vector-search-cluster',
-      clusterType: 'REPLICASET',
-      instanceSize: 'M0',
-      region: 'US_EAST_1',
-    };
-
-    try {
-      const globalArgsContent = fs.readFileSync(globalArgsPath, 'utf8');
-      const parsedArgs: Partial<AtlasStackProps> = JSON.parse(globalArgsContent);
-
-      if (!parsedArgs.orgId) {
-        throw new Error('Missing orgId property in global-args.json');
-      }
-      if (!parsedArgs.projectId) {
-        throw new Error('Missing projectId property in global-args.json');
-      }
-
-      globalArgs = {
-        ...globalArgs,
-        ...parsedArgs
-      };
-    } catch (error) {
-      console.error('Error reading or parsing global-args.json:', error);
-    }
-
-    return globalArgs;
   }
 }
 

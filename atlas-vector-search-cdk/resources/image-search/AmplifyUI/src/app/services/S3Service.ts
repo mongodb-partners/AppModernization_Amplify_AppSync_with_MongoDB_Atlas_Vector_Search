@@ -5,7 +5,14 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class S3Service {
+// Function to construct the public URL for a file in the S3 bucket
+getPublicUrl(filePath: string): string {
+  return `https://${environment.s3Bucket}.s3.${environment.s3Region}.amazonaws.com/${environment.s3Prefix}/${filePath}`;
+}
+  
 
   async getSignedUrl(filePath: string): Promise<string> {
     const credentials = await Auth.currentCredentials();
@@ -16,7 +23,7 @@ export class S3Service {
     const params = {
       Bucket: environment.s3Bucket, // your bucket name
       Key: environment.staticImagePath+`/${filePath}`, // file path in bucket
-      Expires: 60 // time in seconds until the pre-signed URL expires
+      Expires: 60060 // time in seconds until the pre-signed URL expires
     };
 
     return new Promise((resolve, reject) => {

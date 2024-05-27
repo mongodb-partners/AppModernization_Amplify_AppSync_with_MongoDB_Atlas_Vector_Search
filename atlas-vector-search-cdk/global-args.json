@@ -7,13 +7,14 @@
     "region": "US_EAST_1",
     "profile": "default",
     "instanceSize": "M10",
-    "PDFExtractInjestsEnv":{
+    "dataApi": "https://us-east-1.aws.data.mongodb-api.com/app/data-miofhhm/endpoint/data/v1",
+    "PDFExtractInjestsEnv": {
         "MODEL_ID": "amazon.titan-embed-text-v1",
         "MAX_TOKENS": "4096",
         "MONGO_DB": "vectorsearch",
         "MONGO_COLL": "pdfextract",
         "REGION": "us-east-1"
-      },
+    },
     "QueryAndAnsEnv": {
         "MODEL_ID": "amazon.titan-embed-text-v1",
         "MODEL_ID_QA": "amazon.titan-text-express-v1",
@@ -26,17 +27,29 @@
         "RESPONSE_PATH": "completion",
         "MONGO_INDEX_NAME": "documentsearch"
     },
-    "VectorSearch": {
-        "ACCESS_KEY_ID": "",
-        "SECRET_ACCESS_KEY": "",
+    "VectorSearchEnv": {
         "REGION": "us-east-1",
-        "S3_BUCKET": "sampleimages-imagesearch",
-        "SAGEMAKER_ENDPOINT_NAME": "clip-image-model-2023-11-07-19-30-33-770",
-        "MONGO_URL": "mongodb+srv://m220student:m220password@democluster.v15eo.mongodb.net/?retryWrites=true&w=majority",
-        "MONGO_DB": "vectorsearch",
+        "S3_BUCKET": "sagemakersamplebucket2",
+        "SAGEMAKER_ENDPOINT_NAME": "clip-image-model-2024-04-12-19-52-32-237",
+        "MONGO_DB": "AWSAI",
         "MONGO_COLLECTION": "embeddings",
         "VECTOR_SEARCH_INDEX": "imagesearch",
-        "VECTOR_SEARCH_LIMIT": 4,
-        "VECTOR_SEARCH_NUM_CANDIDATES": 100
-    }    
+        "VECTOR_SEARCH_LIMIT": "4",
+        "VECTOR_SEARCH_NUM_CANDIDATES": "100"
+    },
+    "ClassifyDataEnv": {
+        "MODEL_ID_QA_CLAUDE": "anthropic.claude-v2",
+        "MONGO_DB": "AWSAI",
+        "MONGO_COLL": "embeddings",
+        "MODEL_BODY_JSON": "{\"max_tokens_to_sample\":200,\"temperature\":0.5,\"stop_sequences\":[\"\\\\n\\\\nHuman:\"]}",
+        "MODEL_CHOICE": "CLAUDE",
+        "RESPONSE_PATH": "completion",
+        "REGION": "us-east-1"
+      },
+      "ImageSearchAppSync":{
+        "COLLECTION": "image_metadata",
+        "DATA_SOURCE": "atlas-vector-search-cluster",
+        "DB_NAME": "AWSAI",
+        "MDB_SECRET": "GE191BwO5xmZcrFy93QPscoy73y2ssTjQWpm9HEdm3H1GGYVXMdiundHaqdz16Hf"
+      } 
 }

@@ -4,7 +4,8 @@ set -e
 
 
 ATLAS_CLUSTER_STACK="avs-atlas-stack"
-ATLAS_SEARCH_INDEX_STACK="avs-atlas-searchindex-stack"
+ATLAS_DOCUMENT_SEARCH_INDEX_STACK="avs-atlas-documentsearchindex-stack"
+ATLAS_IMAGE_SEARCH_INDEX_STACK="avs-atlas-imagesearchindex-stack"
 DOC_SEARCH_SOURCE="resources/document-search"
 DOC_SEARCH_STACK="avs-document-search-stack"
 IMG_SEARCH_SOURCE="resources/image-search"
@@ -32,8 +33,9 @@ aws cloudformation deploy \
     PublicKey="$ATLAS_PUBLIC_KEY" \
     PrivateKey="$ATLAS_PRIVATE_KEY" \
   --capabilities CAPABILITY_NAMED_IAM
+  
 
-
-cdk deploy $ATLAS_SEARCH_INDEX_STACK --require-approval never
+cdk deploy $ATLAS_DOCUMENT_SEARCH_INDEX_STACK --require-approval never
+cdk deploy $ATLAS_IMAGE_SEARCH_INDEX_STACK --require-approval never
 
 

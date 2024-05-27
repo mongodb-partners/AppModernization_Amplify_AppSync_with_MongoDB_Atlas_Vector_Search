@@ -17,17 +17,17 @@ interface AtlasStackProps {
 
 const searchIndexDefaults = {
   profile: "default",
-  name: "documentsearch",
-  collectionName:"pdfextract",
-  dbName:"vectorsearch"
+  name: "imagesearch2",
+  collectionName:"embeddings",
+  dbName:"AWSAI"
 };
 
 // Read mappings from the JSON file
-const mappingsPath = 'resources/Mongodb/searchindex.json';
+const mappingsPath = 'resources/image-search/Mongodb/searchindex.json';
 const mappingsContent = fs.readFileSync(mappingsPath, 'utf8');
 const mappings = JSON.parse(mappingsContent);
 
-export class SearchIndexStack extends cdk.Stack {
+export class ImageSearchIndexStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 

@@ -24,8 +24,9 @@ export class AppComponent {
 
   constructor(
     private vectorSearchService: VectorSearchServiceService,
-    private apiService: APIService,
-    private s3Service: S3Service
+    
+    private s3Service: S3Service,
+    private apiService: APIService
   ) {}
 
   onCategoryChange(category: string) {
@@ -109,7 +110,7 @@ export class AppComponent {
     itemIds.forEach(itemId => {
       this.apiService.GetItemById(itemId).then(async item => {
         if (item.path) {
-          item.path = await this.s3Service.getSignedUrl(item.path);
+          item.path = await this.s3Service.getPublicUrl(item.path);
         }
         this.itemDetails.push(item);
       }).catch(error => {

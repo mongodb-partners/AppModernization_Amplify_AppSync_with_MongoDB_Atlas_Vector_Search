@@ -13,36 +13,44 @@ import * as fs from 'fs';
 const clusterConnectionString = cdk.Fn.importValue('ClusterConnectionString');
 const dbUser = cdk.Fn.importValue('dbUser');
 const dbPassword = cdk.Fn.importValue('dbPassword');
-
+const bucketName = cdk.Fn.importValue('s3BucketName');
 
 interface GlobalArgs {
+  ATLAS_PUBLIC_KEY: string;
+  ATLAS_PRIVATE_KEY: string;
+  orgId: string;
+  projectId: string;
+  clusterName: string;
+  region: string;
+  profile: string;
+  instanceSize: string;
+  dataApi: string;
   PDFExtractInjestsEnv: Record<string, string>;
   QueryAndAnsEnv: Record<string, string>;
+  VectorSearchEnv: Record<string, string>;
+  ClassifyDataEnv: Record<string, string>;
+  [key: string]: any;
 }
 
-function readGlobalArgs(): GlobalArgs {
-  const globalArgsPath = 'global-args.json';
-  try {
-    const globalArgsContent = fs.readFileSync(globalArgsPath, 'utf8');
-    return JSON.parse(globalArgsContent);
-  } catch (error) {
-    console.error('Error reading or parsing global-args.json:', error);
-    throw error; // Throw the error to indicate failure
-  }
+interface CustomStackProps extends cdk.StackProps {
+  globalArgs: GlobalArgs;
 }
-
 
 export class DocumentSearchCdkStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: CustomStackProps) {
     super(scope, id, props);
+    const { globalArgs } = props;
 
-    let globalArgs = readGlobalArgs();
+  
     globalArgs.PDFExtractInjestsEnv.CLUSTER_CONN_STRING = clusterConnectionString;
     globalArgs.PDFExtractInjestsEnv.DB_USER = dbUser;
     globalArgs.PDFExtractInjestsEnv.DB_PWD = dbPassword;
     globalArgs.QueryAndAnsEnv.CLUSTER_CONN_STRING = clusterConnectionString;
     globalArgs.QueryAndAnsEnv.DB_USER = dbUser;
     globalArgs.QueryAndAnsEnv.DB_PWD = dbPassword;
+
+
+    const bucket = s3.Bucket.fromBucketName(this, 'S3_DocumentSearch', bucketName);
 
     const textractPolicy = new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,
@@ -75,7 +83,7 @@ export class DocumentSearchCdkStack extends cdk.Stack {
     });
 
 
-    const PDFExtractInjestsHandler = new lambda.Function(this, "PDFExtractIngests", {
+    const PDFExtractInjestsHandler = new lambda.Function(this, "PDFExtractLambda_DocumentSearch", {
       runtime: lambda.Runtime.PYTHON_3_12,
       code: lambda.Code.fromAsset("resources/document-search/Lambda/pdfextract_ingests/lambdapackage"),
       handler: "main.lambda_handler",
@@ -88,7 +96,7 @@ export class DocumentSearchCdkStack extends cdk.Stack {
     });
 
 
-    const QueryAndAnsHandler = new lambda.Function(this, "QueryAndAns", {
+    const QueryAndAnsHandler = new lambda.Function(this, "QueryAndAnsLambda_DocumentSearch", {
       runtime: lambda.Runtime.PYTHON_3_12,
       code: lambda.Code.fromAsset("resources/document-search/Lambda/query_and_ans/lambdapackage"),
       handler: "main.lambda_handler",
@@ -104,23 +112,23 @@ export class DocumentSearchCdkStack extends cdk.Stack {
 
 
     // Create a publicly accessible S3 bucket
-    const bucket = new s3.Bucket(this, 'AVS-S3', {
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      blockPublicAccess: {
-        blockPublicAcls: false,
-        blockPublicPolicy: false,
-        ignorePublicAcls: false,
-        restrictPublicBuckets: false,
-      },
-      publicReadAccess: true,
-      cors: [
-        {
-          allowedOrigins: ['*'],
-          allowedMethods: [s3.HttpMethods.GET,s3.HttpMethods.PUT,s3.HttpMethods.POST],
-          allowedHeaders: ['*']
-        }
-      ],
-    });
+    // const bucket = new s3.Bucket(this, 'AVS-S3', {
+    //   removalPolicy: cdk.RemovalPolicy.DESTROY,
+    //   blockPublicAccess: {
+    //     blockPublicAcls: false,
+    //     blockPublicPolicy: false,
+    //     ignorePublicAcls: false,
+    //     restrictPublicBuckets: false,
+    //   },
+    //   publicReadAccess: true,
+    //   cors: [
+    //     {
+    //       allowedOrigins: ['*'],
+    //       allowedMethods: [s3.HttpMethods.GET,s3.HttpMethods.PUT,s3.HttpMethods.POST],
+    //       allowedHeaders: ['*']
+    //     }
+    //   ],
+    // });
 
     // Create a prefix inside the S3 bucket with the Lambda function's name for PDFExtractInjestsHandler
     const pdfExtractInjestsPrefix = `pdfextract/`;
@@ -137,20 +145,20 @@ export class DocumentSearchCdkStack extends cdk.Stack {
     bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3Notifications.LambdaDestination(QueryAndAnsHandler), {
       prefix: queryAndAnsPrefix,
     });
+
+    
   
     const api = new appsync.GraphqlApi(this, 'api', {
       name: 'AVS-APPSYNC',
       definition: appsync.Definition.fromFile('resources/document-search/AppSync/questionanswersapp/schema.json'),
     });
 
-   
-
-    const lambdaDataSource = new appsync.LambdaDataSource(this, 'datasource', {
+    const lambdaDataSource = new appsync.LambdaDataSource(this, 'datasource_DocumentSearch', {
       api: api,
       lambdaFunction: QueryAndAnsHandler,
     });
 
-    const pipelineResolver = new appsync.Resolver(this, 'pipelineResolver', {
+    const pipelineResolver = new appsync.Resolver(this, 'pipelineResolver_DocumentSearch', {
       api,
       dataSource: lambdaDataSource,
       typeName: 'Query',
@@ -158,7 +166,7 @@ export class DocumentSearchCdkStack extends cdk.Stack {
       requestMappingTemplate: appsync.MappingTemplate.fromFile('resources/document-search/AppSync/questionanswersapp/request.vtl'),
       responseMappingTemplate: appsync.MappingTemplate.fromFile('resources/document-search/AppSync/questionanswersapp/response.vtl'),
     });
-    const pipelineResolver2 = new appsync.Resolver(this, 'pipelineResolver2', {
+    const pipelineResolver2 = new appsync.Resolver(this, 'pipelineResolver2_DocumentSearch', {
       api,
       dataSource: lambdaDataSource,
       typeName: 'Query',
@@ -176,58 +184,58 @@ export class DocumentSearchCdkStack extends cdk.Stack {
     // });
 
     // Print API information
-    new cdk.CfnOutput(this, 'aws-appsync-graphqlEndpoint', {
+    new cdk.CfnOutput(this, 'DocumentSearch-graphqlEndpoint', {
       value: api.graphqlUrl,
       description: 'GraphQL API Endpoint',
-      exportName: 'aws-appsync-graphqlEndpoint'
+      exportName: 'DocumentSearch-graphqlEndpoint'
     });
 
     // Print API information
-    new cdk.CfnOutput(this, 'aws-appsync-apiId', {
+    new cdk.CfnOutput(this, 'DocumentSearch-apiId', {
       value: api.apiId,
       description: 'AppSync API ID',
-      exportName: 'aws-appsync-apiId'
+      exportName: 'DocumentSearch-apiId'
     });
 
-    new cdk.CfnOutput(this, 'aws-project-region', {
+    new cdk.CfnOutput(this, 'DocumentSearch-project-region', {
       value: this.region,
       description: 'AppSync Region',
-      exportName: 'aws-project-region'
+      exportName: 'DocumentSearch-project-region'
     });
 
-    new cdk.CfnOutput(this, 'aws-appsync-region', {
+    new cdk.CfnOutput(this, 'DocumentSearch-appsync-region', {
       value: this.region,
       description: 'AppSync Region',
-      exportName: 'aws-appsync-region'
+      exportName: 'DocumentSearch-appsync-region'
     });
 
-    new cdk.CfnOutput(this, 'aws-appsync-authenticationType', {
+    new cdk.CfnOutput(this, 'DocumentSearch-authenticationType', {
       value: 'API_KEY', // Since you are using API_KEY authentication type
       description: 'AppSync Authentication Type',
-      exportName: 'aws-appsync-authenticationType'
+      exportName: 'DocumentSearch-authenticationType'
     });
 
-    new cdk.CfnOutput(this, 'aws-appsync-apiKey', {
+    new cdk.CfnOutput(this, 'DocumentSearch-apiKey', {
       value: api.apiKey || 'No API Key generated', // Check if an API key was generated
       description: 'AppSync API Key',
-      exportName: 'aws-appsync-apiKey'
+      exportName: 'DocumentSearch-apiKey'
     });
 
-    new cdk.CfnOutput(this, 's3Bucket', {
+    new cdk.CfnOutput(this, 'DocumentSearchS3Bucket', {
       value: bucket.bucketName, // Check if an API key was generated
       description: 'S3 bucket Name',
-      exportName: 's3Bucket'
+      exportName: 'DocumentSearchS3Bucket'
     });
 
-    new cdk.CfnOutput(this, 's3Region', {
+    new cdk.CfnOutput(this, 'DocumentSearchS3Region', {
       value: this.region, // Check if an API key was generated
       description: 'S3 bucket Name',
-      exportName: 's3Region'
+      exportName: 'DocumentSearchS3Region'
     });
-    new cdk.CfnOutput(this, 's3Arn', {
+    new cdk.CfnOutput(this, 'DocumentSearchS3Arn', {
       value: bucket.bucketArn, // Check if an API key was generated
       description: 'S3 ARN',
-      exportName: 's3Arn'
+      exportName: 'DocumentSearchS3Arn'
     });
 
   }
