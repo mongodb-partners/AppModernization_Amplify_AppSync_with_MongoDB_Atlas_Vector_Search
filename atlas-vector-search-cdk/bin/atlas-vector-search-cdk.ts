@@ -48,7 +48,7 @@ function readGlobalArgs(): GlobalArgs {
 const globalArgs = readGlobalArgs();
 
 // Pass global arguments to each stack
-// new ClusterStack(app, 'avs-atlas-stack', { globalArgs } as CustomStackProps);
+new ClusterStack(app, 'avs-atlas-stack', { globalArgs } as CustomStackProps);
 new S3Stack(app, 'avs-s3-stack', { globalArgs } as CustomStackProps);
 new DocumentSearchCdkStack(app, 'avs-document-search-stack', { globalArgs } as CustomStackProps);
 new DocumentSearchIndexStack(app, 'avs-atlas-documentsearchindex-stack', { globalArgs } as CustomStackProps);
