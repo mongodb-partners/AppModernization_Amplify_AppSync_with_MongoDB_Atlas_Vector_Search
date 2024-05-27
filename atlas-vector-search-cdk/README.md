@@ -58,7 +58,8 @@ Refer [EC2SETUP.md](https://github.com/mongodb-partners/AppModernization_Amplify
 - **Pip Install**: Ensure that python version 3.12 is installed. (pip3 --version should work)
 - **MongoDB Atlas CDK Resource Activation**: Make sure to activate Atlas CDK resources in your AWS account before running the project.
 - **Atlas Data API**: Make Sure you activate Atlas Data API and create API Key to Access it. For more information follow [AtlasDataAPI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/ATLASDATAAPI.md)
+- **Sage Maker Playbook**: Run this [playbook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/README.md) for creating CLIP models and setting up the data in mongodb and AWS S3
 - **Creating Search Indexes on Cluster**: Using the application first time, Once we have the data in the cluster we have to create search index. With these [Document Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/document-search/Mongodb/searchindex.json). 
 [Image Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/Mongodb/searchindex.json)
 You can even use the helper Script to create the search index [deployAtlasSearchIndex.sh](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/deployAtlasSearchIndex.sh)
-- **Sage Maker Playbook**: 
+- 
