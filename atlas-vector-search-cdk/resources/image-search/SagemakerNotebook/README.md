@@ -16,7 +16,7 @@ embeddings_collection_name = "embeddings"
 ```
 
 ## Steps to run 
-- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb) in sagemaker studio.
+- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion.ipynb) in sagemaker studio.
 
 
 ## Step-by-Step Guide
