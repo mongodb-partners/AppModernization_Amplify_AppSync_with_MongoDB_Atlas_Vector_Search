@@ -15,7 +15,7 @@ This repository contain sophisticated image Search application. This application
 - Machine Learning Models (CLIP)
 
 ## Repository Structure
-- [SagemakerNotebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md): Contains the notebook job for creating clip model and data ingestion to mongodb
+- [SagemakerNotebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/README.md): Contains the notebook job for creating clip model and data ingestion to mongodb
 - [Lambda](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md): AWS Lambda functions used as data sources for AWS AppSync.
 - [Appsync](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AppSync/imagesearch/README.md): AWS Appsync data api which the Amplify UI app uses.
 - [AmplifyUI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/AmplifyUI/README.md): Contains all Front end code and resources for the Image Search Application.
@@ -31,7 +31,7 @@ This repository contain sophisticated image Search application. This application
 ### Application Setup 
 
 1. Data Ingestion and Clip models creation
-   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/README.md) to create a Clip model and ingest dataset for image search
+   - Run the [notebook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion.ipynb) to create a Clip model and ingest dataset for image search
 
 2. Create Lambda functions 
    - Create lambda functions using the code in the repo following the [instructions](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/Lambda/README.md).   
