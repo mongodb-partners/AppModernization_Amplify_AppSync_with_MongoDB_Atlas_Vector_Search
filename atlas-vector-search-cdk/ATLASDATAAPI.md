@@ -19,16 +19,20 @@
 
 ## Creating an API Key for Data API
 
-1. **Navigate to API Keys**:
-   - In the left-hand sidebar, click on "Access Management" and then select "API Keys".
+1. **Navigate to Data API Settings**:
+   - In the left-hand sidebar, click on "Data API".
 
 2. **Create a New API Key**:
-   - Click on the "Create API Key" button.
+   - Navigate to "Users" tab. Click on the "Create API Key" button.
 
-3. **Configure the API Key**:
-   - Enter a description for the API Key to help you identify it later.
-   - Assign roles to the API Key. For the Data API, you will typically need the `Data API` role. Depending on your use case, you may also need additional roles (e.g., `readWriteAnyDatabase`).
+3. **Save the API Key**:
+   - Enter a description for the API Key to help you identify it later and click "Generate API Key".
+   - Copy the API Key and save it for later use. (Be sure to copy this API Key and store it in a secure location. After you leave this page, the full private key is unavailable.)
 
-4. **Save the API Key**:
-   - Click "Save" to generate the API Key.
-   - Make sure to copy the API Key and store it securely, as you won't be able to view it again.
+## Enable Data API for Cluster
+
+1. **Navigate to Data API Settings**:
+   - In the left-hand sidebar, click on "Data API".
+
+2. **Change DataAPI Access**:
+   - Change the "Data API Access" with required permissions.
