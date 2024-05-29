@@ -71,5 +71,11 @@ sudo yum install expect -y
 AWS Amplify CLI is used to manage and scale AWS cloud services used by your application.
 
 ```bash
-npm i @aws-amplify/cli@12.11.0
+npm install -g @aws-amplify/cli@12.11.0
+```
+
+### Install AWS MongoDB Atlas CDK Constructs
+
+```bash
+npm install awscdk-resources-mongodbatlas@3.3.0
 ```
