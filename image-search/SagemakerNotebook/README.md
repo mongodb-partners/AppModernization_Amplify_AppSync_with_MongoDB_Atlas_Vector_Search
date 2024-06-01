@@ -7,12 +7,25 @@
 - Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb)
 
 ```
-s3_bucket_name = sagemaker.session.Session().default_bucket()
-# Replace the following with your MongoDB connection details
-mongo_uri = "MDB_URL"
-db_name = "vectorsearch"
-image_metadata_collection_name = "image_metadata"
-embeddings_collection_name = "embeddings"
+s3_bucket_name = ""
+# Assuming environment variables are set in the Lambda's configuration
+aws_access_key_id = ""
+aws_secret_access_key = ""
+region_name = ""
+
+
+mongo_db = ""
+mongo_coll = ""
+model_body_json = "{\"max_tokens_to_sample\": 200, \"temperature\": 0.5, \"stop_sequences\": [\"\\\\n\\\\nHuman:\"]}"
+
+mongo_uri = f""
+db_name = ""
+image_metadata_collection_name = ""
+
+response_path ="completion"
+bucket_name =""
+prefix = ""
+model_id = "anthropic.claude-v2"  
 ```
 
 ## Steps to run 
