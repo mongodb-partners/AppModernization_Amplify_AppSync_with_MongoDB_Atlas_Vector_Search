@@ -11,7 +11,7 @@ This repository contains two sophisticated search applications: Image Search and
 - AWS S3
 - AWS Textract (Document Search)
 - MongoDB
-- Machine Learning Models (CLIP, Amazon Titan, Anthropic Claude)
+- Machine Learning Models (AWS Bedrock embedding mulitmodal (Titan Multimodal Embeddings G1), Amazon Titan, Anthropic Claude)
 
 ## Dependencies
 
