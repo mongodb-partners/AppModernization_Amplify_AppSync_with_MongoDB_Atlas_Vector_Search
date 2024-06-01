@@ -4,19 +4,32 @@
 - AWS Account with access to Amazon SageMaker, AWS Lambda, Amazon S3
 - Follow the steps to onboard to [sagemaker domain](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html)
 - MongoDB account and database setup.
-- Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb)
+- Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion_multimodel.ipynb)
 
 ```
-s3_bucket_name = sagemaker.session.Session().default_bucket()
-# Replace the following with your MongoDB connection details
-mongo_uri = "MDB_URL"
-db_name = "vectorsearch"
-image_metadata_collection_name = "image_metadata"
-embeddings_collection_name = "embeddings"
+s3_bucket_name = ""
+# Assuming environment variables are set in the Lambda's configuration
+aws_access_key_id = ""
+aws_secret_access_key = ""
+region_name = ""
+
+
+mongo_db = ""
+mongo_coll = ""
+model_body_json = "{\"max_tokens_to_sample\": 200, \"temperature\": 0.5, \"stop_sequences\": [\"\\\\n\\\\nHuman:\"]}"
+
+mongo_uri = f""
+db_name = ""
+image_metadata_collection_name = ""
+
+response_path ="completion"
+bucket_name =""
+prefix = ""
+model_id = "anthropic.claude-v2"  
 ```
 
 ## Steps to run 
-- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion.ipynb) in sagemaker studio.
+- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion_multimodel.ipynb) in sagemaker studio.
 
 
 ## Step-by-Step Guide
@@ -26,13 +39,9 @@ This guide will walk you through the process of ingesting a dataset from Amazon 
 - Use the amazon-berkeley-objects dataset available in Amazon S3.
 - The dataset includes images and metadata that can be utilized for machine learning models.
 
-### 2. Create and Deploy CLIP Model in SageMaker
-- Set up a SageMaker environment.
-- Create a Jupyter notebook in SageMaker.
-- Implement the code for loading, training, and deploying the CLIP model.
 
-### 3. Create Embeddings Using the CLIP Model
-- Utilize the deployed CLIP model to generate embeddings from the dataset.
+### 2. Create Embeddings Using the AWS Bedrock embedding mulitmodal (Titan Multimodal Embeddings G1)
+- Utilize the Titan Multimodal Embeddings G1 model to generate embeddings from the dataset.
 - Ensure the embeddings are correctly formatted for ingestion into MongoDB.
 
 ### 4. Ingest Embeddings into MongoDB
