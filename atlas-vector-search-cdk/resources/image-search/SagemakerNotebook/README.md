@@ -4,7 +4,7 @@
 - AWS Account with access to Amazon SageMaker, AWS Lambda, Amazon S3
 - Follow the steps to onboard to [sagemaker domain](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html)
 - MongoDB account and database setup.
-- Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/main/image-search/SagemakerNotebook/AWSClip.ipynb)
+- Update the below variables with actual values in the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion_multimodel.ipynb)
 
 ```
 s3_bucket_name = ""
@@ -29,7 +29,7 @@ model_id = "anthropic.claude-v2"
 ```
 
 ## Steps to run 
-- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion.ipynb) in sagemaker studio.
+- Run the notebook [job](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/AWSClip_data_ingestion_multimodel.ipynb) in sagemaker studio.
 
 
 ## Step-by-Step Guide
