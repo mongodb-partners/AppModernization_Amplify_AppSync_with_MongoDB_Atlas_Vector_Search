@@ -39,13 +39,9 @@ This guide will walk you through the process of ingesting a dataset from Amazon 
 - Use the amazon-berkeley-objects dataset available in Amazon S3.
 - The dataset includes images and metadata that can be utilized for machine learning models.
 
-### 2. Create and Deploy CLIP Model in SageMaker
-- Set up a SageMaker environment.
-- Create a Jupyter notebook in SageMaker.
-- Implement the code for loading, training, and deploying the CLIP model.
 
-### 3. Create Embeddings Using the CLIP Model
-- Utilize the deployed CLIP model to generate embeddings from the dataset.
+### 2. Create Embeddings Using the AWS Bedrock embedding mulitmodal (Titan Multimodal Embeddings G1)
+- Utilize the Titan Multimodal Embeddings G1 model to generate embeddings from the dataset.
 - Ensure the embeddings are correctly formatted for ingestion into MongoDB.
 
 ### 4. Ingest Embeddings into MongoDB
