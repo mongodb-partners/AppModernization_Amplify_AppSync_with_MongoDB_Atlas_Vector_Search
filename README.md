@@ -11,7 +11,7 @@ This repository contains two sophisticated search applications: Image Search and
 - AWS S3
 - AWS Textract (Document Search)
 - MongoDB
-- Machine Learning Models (CLIP, Amazon Titan, Anthropic Claude)
+- Machine Learning Models (AWS Bedrock embedding mulitmodal (Titan Multimodal Embeddings G1), Amazon Titan, Anthropic Claude)
 
 ## Dependencies
 
@@ -52,8 +52,8 @@ Before running this project, please ensure you have the following dependencies i
     - "dataAPI": // Base URL from Step 6.
     - "ImageSearchAppSync.MDB_SECRET":// Atlas DataApi's API Key from Step 6.
 8. Run deploy.sh
-9. Sage Maker Playbook: Run this [playbook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/README.md) for creating CLIP models and setting up the data in mongodb and AWS S3.
-10. Follow Steps in [AtlasDataAPI](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/ATLASDATAAPI.md) enable "Read and Write" permissions for the cluster with cluster name from Step 7
+9. Sage Maker Playbook: Run this [playbook](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/SagemakerNotebook/README.md) for generating embedding using AWS Bedrock embedding mulitmodal (Titan Multimodal Embeddings G1) and setting up the data in mongodb and AWS S3.
+10. Follow Steps in Enabling [Data API](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/ATLASDATAAPI.md#enable-data-api-for-cluster) enable "Read and Write" permissions for the cluster with cluster name from Step 7
 11. While using the application first time, Once we have the data in the cluster, Create the required search indexes with these [Document Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/document-search/Mongodb/searchindex.json) and  
 [Image Search mapping](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/resources/image-search/Mongodb/searchindex.json)
 You can even use the helper Script to create the search index [deployAtlasSearchIndex.sh](https://github.com/mongodb-partners/AppModernization_Amplify_AppSync_with_MongoDB_Atlas_Vector_Search/blob/cdk_enabled_deployment/atlas-vector-search-cdk/deployAtlasSearchIndex.sh)
