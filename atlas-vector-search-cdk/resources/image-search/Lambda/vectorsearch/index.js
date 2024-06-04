@@ -56,7 +56,7 @@ exports.handler = async (event) => {
         const bedrockResponse = await bedrockClient.send(new InvokeModelCommand(bedrockParams));
         const embeddings = JSON.parse(Buffer.from(bedrockResponse.body).toString()).embedding;
 
-        const client = await MongoClient.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+        const client = await MongoClient.connect(mongoUrl);
         const collection = client.db(process.env.MONGO_DB).collection(process.env.MONGO_COLLECTION);
 
         let aggregateQuery;
