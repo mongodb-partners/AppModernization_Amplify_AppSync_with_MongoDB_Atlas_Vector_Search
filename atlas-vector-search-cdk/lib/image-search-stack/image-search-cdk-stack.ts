@@ -98,7 +98,7 @@ export class ImageSearchCdkStack extends cdk.Stack {
     const bedrockPolicy = new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,
       actions: ['bedrock:InvokeModel'],
-      resources: ['arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v1'],
+      resources: ['arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-image-v1'],
     });
 
     const bedrockPolicy1 = new iam.PolicyStatement({
@@ -122,23 +122,13 @@ export class ImageSearchCdkStack extends cdk.Stack {
         s3PolicyStatement,
         sagemakerPolicyStatement,
         logsCreateLogGroupPolicyStatement,
-        logsPolicyStatement
-      ],
-      timeout: Duration.seconds(363)
-    });
-
-    const ClassifyDataHandler = new lambda.Function(this, "ImageSearch_Lambda_2", {
-      runtime: lambda.Runtime.PYTHON_3_12,
-      code: lambda.Code.fromAsset("resources/image-search/Lambda/classifydata/lambdapackage"),
-      handler: "main.lambda_handler",
-      environment: globalArgs.ClassifyDataEnv,
-      initialPolicy: [
+        logsPolicyStatement,
         textractPolicy,
         bedrockPolicy,
         bedrockPolicy1,
         bedrockPolicy2
       ],
-      timeout: Duration.seconds(720)
+      timeout: Duration.seconds(363)
     });
 
 

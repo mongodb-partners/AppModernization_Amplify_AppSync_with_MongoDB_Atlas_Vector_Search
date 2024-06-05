@@ -4,6 +4,7 @@
     "orgId": "",
     "projectId": "",
     "clusterName": "atlas-vector-search-cluster",
+    "clusterType": "REPLICASET",
     "region": "US_EAST_1",
     "profile": "default",
     "instanceSize": "M10",
@@ -28,11 +29,12 @@
         "MONGO_INDEX_NAME": "documentsearch"
     },
     "VectorSearchEnv": {
+        "BEDROCK_MODEL_ID":"amazon.titan-embed-image-v1",
+        "BEDROCK_REGION":"us-east-1",
         "REGION": "us-east-1",
-        "S3_BUCKET": "sagemakersamplebucket2",
-        "SAGEMAKER_ENDPOINT_NAME": "clip-image-model-2024-04-12-19-52-32-237",
+        "PREFIX":"sample-images/",
         "MONGO_DB": "AWSAI",
-        "MONGO_COLLECTION": "embeddings",
+        "MONGO_COLLECTION": "embedding",
         "VECTOR_SEARCH_INDEX": "imagesearch",
         "VECTOR_SEARCH_LIMIT": "4",
         "VECTOR_SEARCH_NUM_CANDIDATES": "100"

@@ -61,20 +61,20 @@ cd lambdapackage
 npm install
 cd $ROOT_SCRIPT_DIR
 
-echo "ClassifyData Lambda"
-cd $IMG_SEARCH_SOURCE/Lambda/classifydata
-if [ -d "lambdapackage" ]; then
-    rm -rf lambdapackage
-fi
-mkdir lambdapackage
-python3 -m venv myenv
-source myenv/bin/activate
-pip3 install -r requirements.txt
-cp -r myenv/lib/python*/site-packages/* lambdapackage
-cp main.py lambdapackage
-deactivate
-rm -r myenv/
-cd $ROOT_SCRIPT_DIR
+# echo "ClassifyData Lambda"
+# cd $IMG_SEARCH_SOURCE/Lambda/classifydata
+# if [ -d "lambdapackage" ]; then
+#     rm -rf lambdapackage
+# fi
+# mkdir lambdapackage
+# python3 -m venv myenv
+# source myenv/bin/activate
+# pip3 install -r requirements.txt
+# cp -r myenv/lib/python*/site-packages/* lambdapackage
+# cp main.py lambdapackage
+# deactivate
+# rm -r myenv/
+# cd $ROOT_SCRIPT_DIR
 
 ./deployImageSearch.sh
 ./deployDocumentSearch.sh
